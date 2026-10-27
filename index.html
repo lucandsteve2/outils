@@ -188,15 +188,36 @@
         .reason,.go{transition:none}
       }
     </style>
-  </head>
+  
+  <style id="site-chrome">
+    .sitebar{background:#0c262b;color:#fff;width:100%}
+    .sitebar-in{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px 22px;flex-wrap:wrap}
+    .sitebrand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-family:"DM Serif Display",Georgia,serif;font-size:21px;letter-spacing:.01em}
+    .sitebrand img{width:46px;height:46px;border-radius:50%;object-fit:cover;display:block}
+    .sitenav{display:flex;gap:22px;flex-wrap:wrap;font-size:15.5px;font-weight:600}
+    .sitenav a{color:#fff;text-decoration:none;opacity:.92}
+    .sitenav a:hover{opacity:1;text-decoration:underline}
+    .wrap{max-width:1200px;padding:0 24px 72px}
+    .hero{margin:28px 0 0;border-radius:20px;padding:40px 36px 34px}
+    @media (max-width:640px){.sitenav{gap:13px;font-size:14px}.hero{padding:30px 22px 26px}.sitebrand{font-size:19px}}
+  </style>
+</head>
   <body>
+    <!-- En-tête du site (pleine largeur) -->
+    <header class="sitebar">
+      <div class="sitebar-in">
+        <a class="sitebrand" href="https://lucnsteveonleave.com/"><img src="favicon.png" alt="Logo Luc 'n' Steve">Luc 'n' Steve on Leave</a>
+        <nav class="sitenav">
+          <a href="https://lucnsteveonleave.com/">← Retour au site</a>
+          <a href="https://lucnsteveonleave.com/voyage-argent/">Voyage + Argent</a>
+          <a href="https://lucnsteveonleave.com/bons-plans/">Bons plans</a>
+        </nav>
+      </div>
+    </header>
+
     <div class="wrap">
 
-      <!-- Bandeau de marque -->
-      <div class="brandbar">
-        <div class="brand">Luc <span>'n'</span> Steve on Leave</div>
-        <div class="tag">Mexique ↔ Québec · <a href="https://lucnsteveonleave.com/">← Retour au site</a> · <a href="https://lucnsteveonleave.com/voyage-argent/">Voyage + Argent</a> · <a href="https://lucnsteveonleave.com/bons-plans/">Bons plans</a></div>
-      </div>
+      
 
       <!-- Ouverture -->
       <header class="hero">
