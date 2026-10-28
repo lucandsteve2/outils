@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>The Real Cost: Mexico vs Quebec — Luc 'n' Steve on Leave</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      /* Charte lucnsteveonleave.com : sarcelle profond #0b3d3a, menthe #5eead4,
+         primaire #0d9488, titres « DM Serif Display », corps Inter.
+         Quebec = bleu pétrole des guides #0b4f6c · Mexique = terre cuite #C25100. */
+      :root{
+        color-scheme: light dark;
+        --bg:#f7f3ec; --panel:#ffffff; --ink:#12302e; --ink-soft:#526b68;
+        --line:#d7dee2; --teal:#0d9488; --teal-dark:#0b3d3a; --mint:#5eead4; --mint-bg:#d5f7f0;
+        --qc:#0b4f6c; --qc-bg:#dfe6ea; --mx:#C25100; --mx-bg:#FFF3E8;
+        --good:#0f766e; --gold-bg:#fff8e6; --gold-line:#e8c95a;
+        --hero-bg:#0b3d3a; --hero-ink:#f5fffd; --hero-soft:#d5e9e5; --hero-meta:#b9d8d2;
+        --shadow:0 18px 42px rgba(6,43,41,.11);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#081c1a; --panel:#0f2b28; --ink:#eaf4f1; --ink-soft:#a7c0bb;
+          --line:#24514c; --teal:#2ec4ae; --teal-dark:#5eead4; --mint-bg:#123f3a;
+          --qc:#8fc1d4; --qc-bg:#14333d; --mx:#f2a56b; --mx-bg:#3a2417;
+          --good:#5eead4; --gold-bg:#2e2712; --gold-line:#8a6d1f;
+          --hero-bg:#062b29; --shadow:0 18px 42px rgba(0,0,0,.35);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+        font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+      .wrap{max-width:880px;margin:0 auto;padding:0 20px 64px}
+      h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.12;margin:0}
+      h2{font-size:clamp(27px,4vw,34px);letter-spacing:-.01em;color:var(--teal-dark)}
+      @media (prefers-color-scheme: dark){ h2{color:var(--ink)} }
+      h3{font-size:20px}
+      p{margin:0}
+      a{color:#0e7c86;text-underline-offset:3px}
+      @media (prefers-color-scheme: dark){ a{color:var(--mint)} }
+      .mono{font-family:"Inter",sans-serif;font-weight:600;font-variant-numeric:tabular-nums}
+      .brandbar{margin:0 -20px;background:#0c262b;color:#f5fffd;
+        display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+        padding:13px 20px}
+      .brandbar .brand{font-family:"DM Serif Display",Georgia,serif;font-size:20px;letter-spacing:.01em}
+      .brandbar .brand span{color:var(--mint)}
+      .brandbar .tag{font-size:13px;color:var(--hero-meta);font-weight:600}
+      .brandbar .tag a{color:var(--mint);text-decoration:none;font-weight:700}
+      .brandbar .tag a:hover{text-decoration:underline;text-underline-offset:3px}
+      .hero{margin:0 -20px;background:var(--hero-bg);color:var(--hero-ink);padding:46px 36px 42px}
+      .hero .kicker{margin:0 0 14px;color:var(--mint);font-weight:700;font-size:.8rem;
+        letter-spacing:.22em;text-transform:uppercase}
+      .hero h1{font-size:clamp(32px,5.6vw,50px);line-height:1.04;letter-spacing:-.015em;max-width:20ch;color:var(--hero-ink)}
+      .hero h1 .bleu{color:#9fd3e8}
+      .hero h1 em{font-style:normal;color:var(--mint)}
+      .bignum{margin:30px 0 6px}
+      .bignum .amount{font-family:"DM Serif Display",Georgia,serif;
+        font-size:clamp(64px,13vw,110px);line-height:1;color:var(--mint);letter-spacing:-.01em}
+      .bignum .caption{font-size:19px;font-weight:700;margin-top:8px;color:var(--hero-ink)}
+      .bignum .basedon{font-size:15px;color:var(--hero-soft);margin-top:4px}
+      .hero .warm{margin:22px 0 0;max-width:58ch;font-size:18px;color:var(--hero-soft)}
+      .hero .warm + .warm{margin-top:12px}
+      .hero .warm strong{color:#fff}
+      .dateline{margin-top:22px;font-size:13.5px;color:var(--hero-meta)}
+      .dateline b{font-weight:700;color:var(--mint);font-variant-numeric:tabular-nums}
+      .diptych{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px -20px 0}
+      .diptych figure{margin:0;position:relative;overflow:hidden;height:min(40vw,320px);min-height:190px;border-radius:10px}
+      .diptych img{width:100%;height:100%;object-fit:cover;display:block}
+      .diptych figcaption{position:absolute;left:12px;bottom:10px;color:#fff;font-weight:800;
+        font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;
+        background:rgba(6,43,41,.68);padding:5px 11px;border-radius:6px}
+      .diptych figcaption small{display:block;font-weight:500;text-transform:none;letter-spacing:0;font-size:12px;opacity:.9}
+      .why{margin-top:52px}
+      .why h2{text-align:center}
+      .why .intro{text-align:center;color:var(--ink-soft);max-width:56ch;margin:10px auto 24px}
+      .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+      .reason{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:22px;
+        transition:transform .25s ease, box-shadow .25s ease}
+      .reason:hover{transform:translateY(-4px)}
+      .reason .num{font-family:"DM Serif Display",Georgia,serif;font-size:34px;line-height:1}
+      .reason.qc .num{color:var(--qc)} .reason.mx .num{color:var(--mx)} .reason.eq .num{color:var(--teal)}
+      .reason h3{font-size:18px;margin:10px 0 6px;color:var(--ink)}
+      .reason p{font-size:15px;color:var(--ink-soft)}
+      .calc{margin-top:56px;background:var(--panel);border-radius:20px;
+        box-shadow:var(--shadow);padding:28px}
+      .calc h2{text-align:center}
+      .calc .intro{text-align:center;color:var(--ink-soft);max-width:52ch;margin:10px auto 26px}
+      .field{max-width:520px;margin:0 auto 22px}
+      .field label{font-weight:700;font-size:16px;display:block;margin-bottom:8px}
+      .field label .val{color:var(--mx);font-weight:700;font-variant-numeric:tabular-nums}
+      .money{display:flex;align-items:center;gap:8px}
+      .money input{flex:1;min-width:0;font:inherit;font-weight:600;font-variant-numeric:tabular-nums;font-size:19px;text-align:right;
+        padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+      .money input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:transparent}
+      .money span{font-size:14.5px;color:var(--ink-soft);white-space:nowrap}
+      input[type=range]{width:100%;accent-color:var(--teal);height:32px;cursor:pointer}
+      .ticks{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-soft);margin-top:-2px}
+      .go{display:block;margin:6px auto 0;background:var(--teal);color:#fff;border:none;cursor:pointer;
+        font:inherit;font-weight:700;font-size:17px;padding:14px 32px;border-radius:999px;
+        transition:transform .2s ease, background .2s ease}
+      .go:hover{background:var(--teal-dark);transform:translateY(-2px)}
+      @media (prefers-color-scheme: dark){ .go{color:#062b29} .go:hover{background:var(--mint)} }
+      .go:focus-visible{outline:3px solid var(--teal-dark);outline-offset:2px}
+      .answer{margin-top:28px;border-top:2px solid var(--teal-dark);padding-top:22px;text-align:center}
+      .answer .season{font-family:"DM Serif Display",Georgia,serif;
+        font-size:clamp(38px,7vw,54px);line-height:1.1;color:var(--mx)}
+      .answer .season-lbl{font-weight:700;font-size:16.5px;margin-top:4px}
+      .answer .lines{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+      .answer .line{background:var(--bg);border-radius:12px;padding:14px 16px}
+      .answer .line .v{font-weight:700;font-variant-numeric:tabular-nums;font-size:21px}
+      .answer .line .k{font-size:14px;color:var(--ink-soft);margin-top:2px}
+      .answer .note{margin-top:16px;font-size:14px;color:var(--ink-soft);max-width:56ch;margin-left:auto;margin-right:auto}
+      .bemol{margin-top:32px;background:var(--gold-bg);border:1px solid var(--gold-line);border-radius:14px;padding:20px 22px}
+      .bemol h3{margin-bottom:6px}
+      .bemol p{font-size:15.5px;color:var(--ink)}
+      .curieux{margin-top:64px}
+      .curieux > h2{text-align:center}
+      .curieux > .intro{text-align:center;color:var(--ink-soft);max-width:54ch;margin:10px auto 22px}
+      details{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);
+        padding:0 22px;margin-bottom:14px}
+      summary{cursor:pointer;font-family:"DM Serif Display",Georgia,serif;font-size:20px;
+        padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--ink)}
+      summary::-webkit-details-marker{display:none}
+      summary::after{content:"+";font-family:"Inter",sans-serif;font-weight:700;color:var(--teal);font-size:24px;line-height:1}
+      details[open ] summary::after{content:"−"}
+      details .body{padding:0 0 22px}
+      details .body p{font-size:15px;color:var(--ink-soft)}
+      details .body p + p{margin-top:10px}
+      details .body p b{color:var(--ink)}
+      details svg{width:100%;height:auto;display:block;margin-top:6px}
+      .formula{font-size:13.5px;background:var(--bg);border:1px solid var(--line);
+        border-radius:8px;padding:12px 14px;margin:14px 0;color:var(--ink);overflow-wrap:anywhere}
+      .facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+      .facts .fact{border-top:2px solid var(--teal-dark);padding-top:10px}
+      .facts .fact p{font-size:14.5px}
+      .facts .fact b{color:var(--ink)}
+      .versus{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px}
+      .side h3{font-size:21px}
+      .side .taux{font-family:"DM Serif Display",Georgia,serif;font-size:38px;line-height:1.05;margin:4px 0 2px}
+      .side.qc .taux{color:var(--qc)} .side.mx .taux{color:var(--mx)}
+      .side .taux-lbl{font-size:13px;color:var(--ink-soft);margin-bottom:10px}
+      .movers{list-style:none;margin:0;padding:0}
+      .movers li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+      .movers li:last-child{border-bottom:none}
+      .movers .val{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+      .up{color:var(--mx)} .down{color:var(--good)}
+      .sources{list-style:none;margin:0;padding:0}
+      .sources li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--ink-soft)}
+      .sources li:last-child{border-bottom:none}
+      .sources .org{font-weight:700;color:var(--ink)}
+      footer{margin:56px -20px -64px;background:#073f3e;color:#d5e9e5;border-radius:20px 20px 0 0;
+        padding:22px 24px;font-size:13.5px;
+        display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+      footer .sign{font-family:"DM Serif Display",Georgia,serif;font-size:16px;color:#fff}
+      footer a{color:var(--mint)}
+      @media (max-width:700px){
+        .reasons{grid-template-columns:1fr}
+        .answer .lines,.facts,.versus{grid-template-columns:1fr}
+        .diptych figure{height:180px;min-height:0}
+        .hero{padding:36px 22px 34px}
+        .calc{padding:22px 18px}
+        details{padding:0 16px}
+      }
+      @media (prefers-reduced-motion: reduce){
+        html{scroll-behavior:auto}
+        .reason,.go{transition:none}
+      }
+    </style>
+  <style id="site-chrome">
+    .sitebar{background:#0c262b;color:#fff;width:100%}
+    .sitebar-in{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px 22px;flex-wrap:wrap}
+    .sitebrand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-family:"DM Serif Display",Georgia,serif;font-size:21px;letter-spacing:.01em}
+    .sitebrand img{width:46px;height:46px;border-radius:50%;object-fit:cover;display:block}
+    .sitenav{display:flex;gap:22px;flex-wrap:wrap;font-size:15.5px;font-weight:600}
+    .sitenav a{color:#fff;text-decoration:none;opacity:.92}
+    .sitenav a:hover{opacity:1;text-decoration:underline}
+    .wrap{max-width:1200px;padding:0 24px 72px}
+    .hero{margin:28px 0 0;border-radius:20px;padding:40px 36px 34px}
+    @media (max-width:640px){.sitenav{gap:13px;font-size:14px}.hero{padding:30px 22px 26px}.sitebrand{font-size:19px}}
+  </style>
+</head>
+  <body>
+    <!-- En-tête du site (pleine largeur) -->
+    <header class="sitebar">
+      <div class="sitebar-in">
+        <a class="sitebrand" href="https://lucnsteveonleave.com/en/"><img src="/favicon.png" alt="Logo Luc 'n' Steve">Luc 'n' Steve on Leave</a>
+        <nav class="sitenav">
+          <a href="https://lucnsteveonleave.com/en/">← Back to the site</a>
+          <a href="https://lucnsteveonleave.com/en/travel-money/">Travel + Money</a>
+          <a href="https://lucnsteveonleave.com/en/deals/">Deals</a>
+        </nav>
+      </div>
+    </header>
+    <div class="wrap">
+      <!-- Ouverture -->
+      <header class="hero">
+        <p class="eyebrow">Travel + Money — the tool</p>
+        <h1>The Real Cost of Living: Mexico vs Quebec</h1>
+        <p>Enter your monthly budget and the length of your stay: the tool calculates what the same lifestyle would cost you in Mexico, in Canadian dollars and pesos. The full explanation is in <a href="https://lucnsteveonleave.com/en/travel-money/">our Travel + Money section</a>.</p>
+      </header>
+      <!-- Calculateur simple -->
+      <section class="calc" aria-labelledby="calc-title">
+        <h2 id="calc-title">Give it a try with your budget</h2>
+        <p class="intro">Just two settings. No need to break everything down by category: we apply the same price difference to your total.</p>
+        <div class="field">
+          <label for="budget">Your monthly budget in Quebec</label>
+          <div class="money">
+            <input type="number" id="budget" min="0" step="50" value="4300" inputmode="numeric" />
+            <span>$ / month</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mois">Months spent in Mexico per year: <span class="val" id="moisOut">6 months</span></label>
+          <input type="range" id="mois" min="1" max="12" step="1" value="6" aria-label="Months spent in Mexico per year" />
+          <div class="ticks"><span>1</span><span>3</span><span>6</span><span>9</span><span>12</span></div>
+        </div>
+        <button class="go" id="go" type="button">See the results</button>
+        <div class="answer" id="answer" aria-live="polite">
+          <div class="season" id="rSaveSeason">—</div>
+          <p class="season-lbl">in savings over <span id="rSaveMonths">6</span> months in Mexico, with the same lifestyle</p>
+          <div class="lines">
+            <div class="line">
+              <div class="v" id="rMxCad">—</div>
+              <p class="k">What the same month of living would cost you in Mexico, in Canadian dollars</p>
+            </div>
+            <div class="line">
+              <div class="v" id="rSaveMonth">—</div>
+              <p class="k">Your monthly savings while you're there, compared with your Quebec budget</p>
+            </div>
+          </div>
+          <p class="note">In practice, you'd pay about <b class="mono" id="rMxMxn">—</b> per month over there. And your entire Quebec budget, simply converted into pesos, would be worth <b class="mono" id="rQcMxn">—</b> — the difference between the two is where the savings come from.</p>
+        </div>
+      </section>
+      <!-- The honest caveat -->
+      <div class="bemol">
+        <h3>The honest caveat</h3>
+        <p>These figures compare the average day-to-day cost of living across an entire country. A seasonal rental in Puerto Vallarta at tourist-market prices can cost more than the difference calculated here — and eat into some of the savings. Treat the result as a solid ballpark figure, not a dollar-for-dollar promise.</p>
+      </div>
+      <footer>
+        <span><span class="sign">Luc N Steve</span> · The Real Cost of Living, Mexico vs Quebec — official figures as of October 27, 2026. <a href="https://lucnsteveonleave.com/en/travel-money/" target="_blank" rel="noopener">See also Travel + Money</a></span>
+        <span>The example budget is generic — the calculator uses yours instead.</span>
+      </footer>
+    </div>
+    <script>
+      // ---- Données figées le 27 octobre 2026 (mêmes sources que la version précédente) ----
+      var TAUX_MARCHE = 13.2898;                 // pesos pour 1 $ CA (BCE, 27 oct. 2026)
+      var PPA_CA = 1.166683, PPA_MX = 10.328951; // Banque mondiale 2025
+      var TAUX_PPA = PPA_MX / PPA_CA;            // 8,85 pesos par $ CA à pouvoir d'achat égal
+      var RATIO_PPA = TAUX_PPA / TAUX_MARCHE;    // ≈ 0,67 : part du budget QC pour le même train de vie au MX
+      var fmtCAD = new Intl.NumberFormat("en-CA",{style:"currency",currency:"CAD",maximumFractionDigits:0});
+      var fmtMXN = new Intl.NumberFormat("en-CA",{style:"currency",currency:"MXN",maximumFractionDigits:0});
+      function $(id){ return document.getElementById(id); }
+      function render(){
+        var v = parseFloat($("budget").value);
+        var total = isNaN(v) || v < 0 ? 0 : v;
+        var mois = parseInt($("mois").value, 10);
+        var mxTotal = total * RATIO_PPA;
+        var save = total - mxTotal;
+        $("moisOut").textContent = mois + " months";
+        $("rMxCad").textContent = fmtCAD.format(mxTotal);
+        $("rSaveMonth").textContent = fmtCAD.format(save);
+        $("rSaveSeason").textContent = fmtCAD.format(save * mois);
+        $("rSaveMonths").textContent = mois;
+        $("rMxMxn").textContent = fmtMXN.format(mxTotal * TAUX_MARCHE);
+        $("rQcMxn").textContent = fmtMXN.format(total * TAUX_MARCHE);
+      }
+      $("budget").addEventListener("input", render);
+      $("mois").addEventListener("input", render);
+      $("go").addEventListener("click", function(){
+        render();
+        $("answer").scrollIntoView({behavior:"smooth", block:"center"});
+      });
+      render();
+</script>
+  </body>
+</html>
