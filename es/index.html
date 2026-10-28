@@ -45,6 +45,8 @@
       a{color:#0e7c86;text-underline-offset:3px}
       @media (prefers-color-scheme: dark){ a{color:var(--mint)} }
       .mono{font-family:"Inter",sans-serif;font-weight:600;font-variant-numeric:tabular-nums}
+
+      /* ---------- Bandeau de marque (comme l'en-tête du site) ---------- */
       .brandbar{margin:0 -20px;background:#0c262b;color:#f5fffd;
         display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
         padding:13px 20px}
@@ -53,6 +55,8 @@
       .brandbar .tag{font-size:13px;color:var(--hero-meta);font-weight:600}
       .brandbar .tag a{color:var(--mint);text-decoration:none;font-weight:700}
       .brandbar .tag a:hover{text-decoration:underline;text-underline-offset:3px}
+
+      /* ---------- Hero foncé, à la manière de l'accueil du site ---------- */
       .hero{margin:0 -20px;background:var(--hero-bg);color:var(--hero-ink);padding:46px 36px 42px}
       .hero .kicker{margin:0 0 14px;color:var(--mint);font-weight:700;font-size:.8rem;
         letter-spacing:.22em;text-transform:uppercase}
@@ -69,6 +73,8 @@
       .hero .warm strong{color:#fff}
       .dateline{margin-top:22px;font-size:13.5px;color:var(--hero-meta)}
       .dateline b{font-weight:700;color:var(--mint);font-variant-numeric:tabular-nums}
+
+      /* ---------- Diptyque ---------- */
       .diptych{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px -20px 0}
       .diptych figure{margin:0;position:relative;overflow:hidden;height:min(40vw,320px);min-height:190px;border-radius:10px}
       .diptych img{width:100%;height:100%;object-fit:cover;display:block}
@@ -76,6 +82,8 @@
         font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;
         background:rgba(6,43,41,.68);padding:5px 11px;border-radius:6px}
       .diptych figcaption small{display:block;font-weight:500;text-transform:none;letter-spacing:0;font-size:12px;opacity:.9}
+
+      /* ---------- Pourquoi, en mots simples ---------- */
       .why{margin-top:52px}
       .why h2{text-align:center}
       .why .intro{text-align:center;color:var(--ink-soft);max-width:56ch;margin:10px auto 24px}
@@ -87,6 +95,8 @@
       .reason.qc .num{color:var(--qc)} .reason.mx .num{color:var(--mx)} .reason.eq .num{color:var(--teal)}
       .reason h3{font-size:18px;margin:10px 0 6px;color:var(--ink)}
       .reason p{font-size:15px;color:var(--ink-soft)}
+
+      /* ---------- Calculateur simple ---------- */
       .calc{margin-top:56px;background:var(--panel);border-radius:20px;
         box-shadow:var(--shadow);padding:28px}
       .calc h2{text-align:center}
@@ -116,9 +126,13 @@
       .answer .line .v{font-weight:700;font-variant-numeric:tabular-nums;font-size:21px}
       .answer .line .k{font-size:14px;color:var(--ink-soft);margin-top:2px}
       .answer .note{margin-top:16px;font-size:14px;color:var(--ink-soft);max-width:56ch;margin-left:auto;margin-right:auto}
+
+      /* ---------- La salvedad honesta ---------- */
       .bemol{margin-top:32px;background:var(--gold-bg);border:1px solid var(--gold-line);border-radius:14px;padding:20px 22px}
       .bemol h3{margin-bottom:6px}
       .bemol p{font-size:15.5px;color:var(--ink)}
+
+      /* ---------- Pour les curieux ---------- */
       .curieux{margin-top:64px}
       .curieux > h2{text-align:center}
       .curieux > .intro{text-align:center;color:var(--ink-soft);max-width:54ch;margin:10px auto 22px}
@@ -154,11 +168,13 @@
       .sources li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--ink-soft)}
       .sources li:last-child{border-bottom:none}
       .sources .org{font-weight:700;color:var(--ink)}
+
       footer{margin:56px -20px -64px;background:#073f3e;color:#d5e9e5;border-radius:20px 20px 0 0;
         padding:22px 24px;font-size:13.5px;
         display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
       footer .sign{font-family:"DM Serif Display",Georgia,serif;font-size:16px;color:#fff}
       footer a{color:var(--mint)}
+
       @media (max-width:700px){
         .reasons{grid-template-columns:1fr}
         .answer .lines,.facts,.versus{grid-template-columns:1fr}
@@ -172,6 +188,7 @@
         .reason,.go{transition:none}
       }
     </style>
+  
   <style id="site-chrome">
     .sitebar{background:#0c262b;color:#fff;width:100%}
     .sitebar-in{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px 22px;flex-wrap:wrap}
@@ -179,7 +196,8 @@
     .sitebrand img{width:46px;height:46px;border-radius:50%;object-fit:cover;display:block}
     .sitenav{display:flex;gap:22px;flex-wrap:wrap;font-size:15.5px;font-weight:600}
     .sitenav a{color:#fff;text-decoration:none;opacity:.92}
-    .sitenav a:hover{opacity:1;text-decoration:underline}
+    .sitenav .langcur{color:#fff;font-weight:700}
+        .sitenav a:hover{opacity:1;text-decoration:underline}
     .wrap{max-width:1200px;padding:0 24px 72px}
     .hero{margin:28px 0 0;border-radius:20px;padding:40px 36px 34px}
     @media (max-width:640px){.sitenav{gap:13px;font-size:14px}.hero{padding:30px 22px 26px}.sitebrand{font-size:19px}}
@@ -194,20 +212,34 @@
           <a href="https://lucnsteveonleave.com/es/">← Volver al sitio</a>
           <a href="https://lucnsteveonleave.com/es/viajes-dinero/">Viaje + Dinero</a>
           <a href="https://lucnsteveonleave.com/es/ofertas/">Ofertas</a>
+          <a href="https://outils.lucnsteveonleave.com/">Français</a>
+          <a href="https://outils.lucnsteveonleave.com/en/">English</a>
+          <span class="langcur">🌐 Español</span>
         </nav>
       </div>
     </header>
+
     <div class="wrap">
+
+      
+
       <!-- Ouverture -->
       <header class="hero">
         <p class="eyebrow">Viaje + Dinero — la herramienta</p>
         <h1>El costo real de la vida: México vs Quebec</h1>
         <p>Introduce tu presupuesto mensual y la duración de tu estancia: la herramienta calcula lo que el mismo tren de vida te costaría en México, en dólares canadienses y en pesos. La explicación completa está en <a href="https://lucnsteveonleave.com/es/viajes-dinero/">nuestra sección Viaje + Dinero</a>.</p>
       </header>
+
+      
+
+      <!-- Pourquoi, en mots simples -->
+      
+
       <!-- Calculateur simple -->
       <section class="calc" aria-labelledby="calc-title">
         <h2 id="calc-title">Pruébalo con tu presupuesto</h2>
         <p class="intro">Dos ajustes, eso es todo. No hace falta detallar rubro por rubro: aplicamos la misma diferencia de precios a tu total.</p>
+
         <div class="field">
           <label for="budget">Tu presupuesto mensual en Quebec</label>
           <div class="money">
@@ -215,12 +247,15 @@
             <span>$ / mes</span>
           </div>
         </div>
+
         <div class="field">
           <label for="mois">Meses pasados en México por año: <span class="val" id="moisOut">6 meses</span></label>
           <input type="range" id="mois" min="1" max="12" step="1" value="6" aria-label="Meses pasados en México por año" />
           <div class="ticks"><span>1</span><span>3</span><span>6</span><span>9</span><span>12</span></div>
         </div>
+
         <button class="go" id="go" type="button">Ver lo que resulta</button>
+
         <div class="answer" id="answer" aria-live="polite">
           <div class="season" id="rSaveSeason">—</div>
           <p class="season-lbl">de ahorro en <span id="rSaveMonths">6</span> meses en México, a igual estilo de vida</p>
@@ -237,25 +272,28 @@
           <p class="note">En la práctica, allá gastarías aproximadamente <b class="mono" id="rMxMxn">—</b> al mes. Y tu presupuesto de Quebec completo, simplemente cambiado a pesos, valdría <b class="mono" id="rQcMxn">—</b> — es la diferencia entre ambos lo que genera el ahorro.</p>
         </div>
       </section>
-      <!-- La salvedad honesta -->
-      <div class="bemol">
-        <h3>La salvedad honesta</h3>
-        <p>Estas cifras comparan la vida cotidiana promedio de todo un país. Una renta de temporada en Puerto Vallarta, alquilada al precio del mercado turístico, puede costar más cara que la diferencia calculada aquí y devorar una parte de la ventaja. Toma el resultado como un orden de magnitud sólido, no como una promesa al dólar exacto.</p>
-      </div>
+
+<!-- Pour les curieux -->
+      
+
       <footer>
-        <span><span class="sign">Luc N Steve</span> · El costo real de la vida: México vs Quebec — cifras oficiales del 27 de octubre de 2026. <a href="https://lucnsteveonleave.com/es/viajes-dinero/" target="_blank" rel="noopener">Ver también Viaje + Dinero</a></span>
+        <span><span class="sign">Luc N Steve</span> · El costo real de la vida, México vs Quebec — cifras oficiales del 27 de octubre de 2026. <a href="https://lucnsteveonleave.com/es/viajes-dinero/" target="_blank" rel="noopener">Ver también Viaje + Dinero</a></span>
         <span>El presupuesto de ejemplo es genérico; el tuyo lo reemplaza en la calculadora.</span>
       </footer>
+
     </div>
+
     <script>
       // ---- Données figées le 27 octobre 2026 (mêmes sources que la version précédente) ----
       var TAUX_MARCHE = 13.2898;                 // pesos pour 1 $ CA (BCE, 27 oct. 2026)
       var PPA_CA = 1.166683, PPA_MX = 10.328951; // Banque mondiale 2025
       var TAUX_PPA = PPA_MX / PPA_CA;            // 8,85 pesos par $ CA à pouvoir d'achat égal
       var RATIO_PPA = TAUX_PPA / TAUX_MARCHE;    // ≈ 0,67 : part du budget QC pour le même train de vie au MX
+
       var fmtCAD = new Intl.NumberFormat("es-MX",{style:"currency",currency:"CAD",maximumFractionDigits:0});
       var fmtMXN = new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0});
       function $(id){ return document.getElementById(id); }
+
       function render(){
         var v = parseFloat($("budget").value);
         var total = isNaN(v) || v < 0 ? 0 : v;
