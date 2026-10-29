@@ -329,7 +329,7 @@
       var RATIO_PPA = TAUX_PPA / TAUX_MARCHE;    // ≈ 0,67 : part du budget QC pour le même train de vie au MX
 
       var fmtCAD = new Intl.NumberFormat("es-MX",{style:"currency",currency:"CAD",maximumFractionDigits:0});
-      var fmtMXN = new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0});
+      var fmtNum = new Intl.NumberFormat("es-MX",{maximumFractionDigits:0}); function fmtMXN(v){ return "MX$" + fmtNum.format(v); }
       function $(id){ return document.getElementById(id); }
 
       function render(){
@@ -345,8 +345,8 @@
         $("rSaveMonth").textContent = fmtCAD.format(save);
         $("rSaveSeason").textContent = fmtCAD.format(save * mois);
         $("rSaveMonths").textContent = mois;
-        $("rMxMxn").textContent = fmtMXN.format(mxTotal * TAUX_MARCHE);
-        $("rQcMxn").textContent = fmtMXN.format(total * TAUX_MARCHE);
+        $("rMxMxn").textContent = fmtMXN(mxTotal * TAUX_MARCHE);
+        $("rQcMxn").textContent = fmtMXN(total * TAUX_MARCHE);
         $("mTaux").textContent = TAUX_MARCHE.toFixed(2).replace(".", ",");
         $("mPpa").textContent = TAUX_PPA.toFixed(2).replace(".", ",");
         $("mEcart").textContent = ((1 - RATIO_PPA) * 100).toFixed(1).replace(".", ",") + " %";
