@@ -187,7 +187,14 @@
         html{scroll-behavior:auto}
         .reason,.go{transition:none}
       }
-    </style>
+          .method{margin:26px 0 0;background:var(--panel);border:1.5px solid var(--line);border-radius:16px;padding:22px 24px}
+      .method h3{font-family:"DM Serif Display",Georgia,serif;font-size:21px;margin:0 0 10px;color:var(--ink)}
+      .method ul{margin:0;padding-left:20px;line-height:1.65;color:var(--ink-soft)}
+      .reset{margin-left:12px;background:transparent;border:1.5px solid var(--teal);color:var(--teal);border-radius:999px;padding:12px 22px;font:inherit;font-weight:700;cursor:pointer}
+      .help{font-size:13.5px;color:var(--ink-soft);margin:6px 0 0}
+      .err{display:none;color:#d43d2a;font-weight:600;margin:8px 0 0}
+      footer .flinks a{margin-right:16px}
+</style>
   
   <style id="site-chrome">
     .sitebar{background:#0c262b;color:#fff;width:100%}
@@ -246,6 +253,8 @@
             <input type="number" id="budget" min="0" step="50" value="4300" inputmode="numeric" />
             <span>$ / mois</span>
           </div>
+          <p class="help">Montant mensuel total, en dollars canadiens. Garde l'exemple de 4 300 $ ou entre le tien.</p>
+          <p class="err" id="budgetErr">Entre un budget mensuel valide — un montant supérieur à 0 $ — pour voir le résultat.</p>
         </div>
 
         <div class="field">
@@ -254,7 +263,8 @@
           <div class="ticks"><span>1</span><span>3</span><span>6</span><span>9</span><span>12</span></div>
         </div>
 
-        <button class="go" id="go" type="button">Voir ce que ça donne</button>
+        <button class="go" id="go" type="button">Recalculer</button>
+        <button class="reset" id="reset" type="button">Réinitialiser l'exemple</button>
 
         <div class="answer" id="answer" aria-live="polite">
           <div class="season" id="rSaveSeason">—</div>
@@ -272,12 +282,27 @@
           <p class="note">En pratique, là-bas, tu débourserais environ <b class="mono" id="rMxMxn">—</b> par mois. Et ton budget québécois au complet, simplement changé en pesos, vaudrait <b class="mono" id="rQcMxn">—</b> — c'est l'écart entre les deux qui fait l'économie.</p>
         </div>
       </section>
+
+      <!-- Comment ce résultat est calculé -->
+      <section class="method" aria-labelledby="method-title">
+        <h3 id="method-title">Comment ce résultat est calculé</h3>
+        <ul>
+          <li>On applique un même écart de prix à ton budget mensuel total, sans détailler poste par poste.</li>
+          <li>Écart appliqué : le même train de vie au Mexique coûte environ <b id="mEcart">33,4 %</b> de moins qu'au Québec — par exemple <b id="mExemple">2 864 $</b> là-bas pour un budget de 4 300 $ ici.</li>
+          <li>Taux de change utilisé : 1 $ CAD = <b id="mTaux">13,29</b> MXN au taux du marché, comparé à <b id="mPpa">8,85</b> MXN à pouvoir d'achat égal.</li>
+          <li>Sources : parités de pouvoir d'achat de la Banque mondiale (2025) et taux de change quotidien de la Banque du Canada.</li>
+          <li>Date de mise à jour des chiffres : <span id="mDate">28 octobre 2026</span>.</li>
+          <li>Ce que l'estimation ne comprend pas : vols, assurance voyage, frais de séjour temporaires et autres coûts propres à ta situation, sauf indication contraire.</li>
+          <li>Le résultat varie selon la ville et le mode de vie au Mexique. C'est une estimation pour comparer, pas une promesse de dépense.</li>
+        </ul>
+      </section>
 <!-- Pour les curieux -->
       
 
       <footer>
-        <span><span class="sign">Luc N Steve</span> · Le vrai coût de la vie, Mexique vs Québec — chiffres officiels du 28 octobre 2026. <a href="https://lucnsteveonleave.com/voyage-argent/" target="_blank" rel="noopener">Voir aussi Voyage + Argent</a></span>
+        <span><span class="sign">Luc 'n' Steve on Leave</span> · Le vrai coût de la vie, Mexique vs Québec — sources : Banque mondiale et Banque du Canada, chiffres du 28 octobre 2026.</span>
         <span>Le budget d'exemple est générique — le tien le remplace dans le calculateur.</span>
+        <span class="flinks"><a href="https://lucnsteveonleave.com/destinations/">Destinations</a><a href="https://lucnsteveonleave.com/blog/">Blog</a><a href="https://lucnsteveonleave.com/contact/">Contact</a></span>
       </footer>
 
     </div>
@@ -295,7 +320,9 @@
 
       function render(){
         var v = parseFloat($("budget").value);
-        var total = isNaN(v) || v < 0 ? 0 : v;
+        var bad = isNaN(v) || v <= 0;
+        $("budgetErr").style.display = bad ? "block" : "none";
+        var total = bad ? 0 : v;
         var mois = parseInt($("mois").value, 10);
         var mxTotal = total * RATIO_PPA;
         var save = total - mxTotal;
@@ -306,10 +333,20 @@
         $("rSaveMonths").textContent = mois;
         $("rMxMxn").textContent = fmtMXN.format(mxTotal * TAUX_MARCHE);
         $("rQcMxn").textContent = fmtMXN.format(total * TAUX_MARCHE);
+        $("mTaux").textContent = TAUX_MARCHE.toFixed(2).replace(".", ",");
+        $("mPpa").textContent = TAUX_PPA.toFixed(2).replace(".", ",");
+        $("mEcart").textContent = ((1 - RATIO_PPA) * 100).toFixed(1).replace(".", ",") + " %";
+        $("mExemple").textContent = fmtCAD.format(4300 * RATIO_PPA);
       }
       $("budget").addEventListener("input", render);
       $("mois").addEventListener("input", render);
       $("go").addEventListener("click", function(){
+        render();
+        $("answer").scrollIntoView({behavior:"smooth", block:"center"});
+      });
+      $("reset").addEventListener("click", function(){
+        $("budget").value = 4300;
+        $("mois").value = 6;
         render();
         $("answer").scrollIntoView({behavior:"smooth", block:"center"});
       });
