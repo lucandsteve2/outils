@@ -12,16 +12,9 @@
       :root{ --bg:#f7f3ec; --panel:#ffffff; --ink:#12302e; --ink-soft:#526b68; --line:#d7dee2; --teal:#0d9488; --teal-dark:#0b3d3a; --mint:#5eead4; }
       *{ box-sizing:border-box; }
       body{ margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif; }
-      header{ background:var(--teal-dark); color:#e6fffa; }
-      .hwrap{ max-width:1000px; margin:0 auto; padding:16px 20px; display:flex; flex-wrap:wrap; gap:10px 26px; align-items:center; justify-content:space-between; }
-      .brand{ font-family:"DM Serif Display",Georgia,serif; font-size:1.35rem; color:#fff; text-decoration:none; }
-      .brand span{ color:var(--mint); }
-      nav a{ color:#e6fffa; text-decoration:none; font-size:.95rem; margin-left:18px; }
       main{ max-width:1000px; margin:0 auto; padding:34px 20px 50px; }
       h1{ font-family:"DM Serif Display",Georgia,serif; font-size:2.1rem; margin:0 0 8px; color:var(--teal-dark); }
       .sub{ color:var(--ink-soft); margin:0 0 22px; line-height:1.55; }
-      .langline{ font-size:.9rem; margin:0 0 20px; }
-      .langline a{ color:var(--teal); }
       #q{ width:100%; font-size:1.15rem; padding:14px 18px; border:2px solid var(--line); border-radius:999px; outline:none; background:#fff; color:var(--ink); }
       #q:focus{ border-color:var(--teal); }
       #etat{ color:var(--ink-soft); margin:16px 2px; font-size:.95rem; }
@@ -31,28 +24,33 @@
       .carte h2{ font-size:1.15rem; margin:2px 0 8px; line-height:1.35; }
       .carte h2 a{ color:var(--teal-dark); text-decoration:none; }
       .carte p{ margin:0; color:var(--ink-soft); line-height:1.55; font-size:.95rem; }
-      footer{ border-top:1px solid var(--line); }
-      .fwrap{ max-width:1000px; margin:0 auto; padding:16px 20px 26px; color:var(--ink-soft); font-size:.88rem; display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; }
-      footer a{ color:var(--teal); text-decoration:none; }
+    
+      /* Chrome unifié (2026-10-28) : en-tête et pied identiques au site principal. */
+      .ls-head{ background:#0c262b; color:#fff; width:100%; position:sticky; top:0; z-index:60; }
+      .ls-head-in{ max-width:1200px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px 26px; flex-wrap:wrap; }
+      .ls-brand{ display:flex; align-items:center; gap:12px; color:#fff; text-decoration:none; font-family:"DM Serif Display",Georgia,serif; font-size:21px; letter-spacing:.01em; white-space:nowrap; }
+      .ls-brand img{ width:46px; height:46px; border-radius:50%; object-fit:cover; display:block; }
+      .ls-brand span{ color:#5eead4; }
+      .ls-nav{ display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:15.5px; font-weight:600; }
+      .ls-nav a{ color:#fff; text-decoration:none; opacity:.92; }
+      .ls-nav a:hover{ opacity:1; text-decoration:underline; }
+      .ls-lang{ opacity:.92; }
+      .ls-lang a{ margin-left:6px; }
+      @media (max-width:640px){ .ls-nav{ gap:12px; font-size:14px; } .ls-brand{ font-size:19px; } }
     </style>
   </head>
   <body>
-    <header><div class="hwrap">
-      <a class="brand" href="https://lucnsteveonleave.com/">Luc 'n' Steve <span>on Leave</span></a>
-      <nav><a href="https://lucnsteveonleave.com/destinations/">Destinations</a><a href="https://lucnsteveonleave.com/blog/">Blog</a><a href="https://lucnsteveonleave.com/bons-plans/">Nos bons plans</a></nav>
-    </div></header>
+    <header class="ls-head"><div class="ls-head-in"><a class="ls-brand" href="https://lucnsteveonleave.com/"><img src="/favicon.png" alt="Logo Luc 'n' Steve">Luc 'n' Steve <span>on Leave</span></a><nav class="ls-nav"><a href="https://lucnsteveonleave.com/destinations/">Destinations</a><a href="https://lucnsteveonleave.com/blog/">Blog</a><a href="https://lucnsteveonleave.com/bons-plans/">Nos bons plans</a><a href="https://outils.lucnsteveonleave.com/">Outils</a><a href="https://lucnsteveonleave.com/a-propos/">À propos</a><a href="https://lucnsteveonleave.com/contact/">Contact</a><a href="https://outils.lucnsteveonleave.com/recherche/">🔍 Recherche</a><span class="ls-lang">🌐<a href="https://outils.lucnsteveonleave.com/en/search/">English</a><a href="https://outils.lucnsteveonleave.com/es/buscar/">Español</a></span></nav></div></header>
     <main>
       <h1>Recherche</h1>
       <p class="sub">Cherche dans nos destinations, nos guides et nos articles — en français seulement.</p>
-      <p class="langline"><a href="https://outils.lucnsteveonleave.com/en/search/">English version</a> · <a href="https://outils.lucnsteveonleave.com/es/buscar/">Versión en español</a></p>
       <input id="q" type="search" placeholder="Ex. : Mérida, budget, voiture…" aria-label="Recherche" autocomplete="off" />
       <p id="etat">Chargement du catalogue…</p>
       <div id="resultats"></div>
     </main>
-    <footer><div class="fwrap">
-      <span>© 2026 Luc 'n' Steve on Leave</span>
-      <a href="https://lucnsteveonleave.com/">Retour au site</a>
-    </div></footer>
+    <div style="background:#073f3e;color:#e6fffa">
+<div style="max-width:1200px;margin:0 auto;padding:46px 24px 30px;display:flex;flex-wrap:wrap;gap:38px 52px"><div style="flex:2 1 300px;min-width:250px"><p style="font-size:1.4rem;font-weight:800;color:#ffffff;margin:0 0 12px">Luc 'n' Steve <span style="color:#5eead4">on Leave</span></p><p style="margin:0 0 18px;font-size:.96rem;line-height:1.65;color:#c4e6df;max-width:42ch">Deux gars qui vivent lentement — 6 mois au Mexique, 6 mois au Québec — et qui racontent ce que ça coûte, pour vrai.</p><p style="margin:0;font-size:.95rem"><a href="https://www.youtube.com/@lucsteve7510" target="_blank" rel="noopener" style="color:#ffffff;text-decoration:none;font-weight:600">YouTube</a><span style="color:#5eead4;margin:0 8px">·</span><a href="https://www.facebook.com/profile.php?id=100086035128897" target="_blank" rel="noopener" style="color:#ffffff;text-decoration:none;font-weight:600">Facebook</a><span style="color:#5eead4;margin:0 8px">·</span><a href="https://www.instagram.com/luc_et_steve/" target="_blank" rel="noopener" style="color:#ffffff;text-decoration:none;font-weight:600">Instagram</a><span style="color:#5eead4;margin:0 8px">·</span><a href="https://www.threads.com/@luc_et_steve" target="_blank" rel="noopener" style="color:#ffffff;text-decoration:none;font-weight:600">Threads</a></p></div><div style="flex:1 1 150px;min-width:140px"><p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5eead4;margin:4px 0 14px">Explorer</p><a href="https://lucnsteveonleave.com/destinations/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Destinations</a><a href="https://lucnsteveonleave.com/blog/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Blog</a><a href="https://lucnsteveonleave.com/bons-plans/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Nos bons plans</a><a href="https://outils.lucnsteveonleave.com/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Outils</a><a href="https://lucnsteveonleave.com/a-propos/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">À propos</a></div><div style="flex:1 1 150px;min-width:140px"><p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5eead4;margin:4px 0 14px">Réserver</p><a href="https://www.expedia.ca/shop/luc-n-steve-on-leave" target="_blank" rel="noopener" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Expedia</a><a href="https://www.viator.com/fr-CA/partner-shop/luc-n-steve-on-leave" target="_blank" rel="noopener" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Viator</a><p style="font-size:.85rem;line-height:1.55;color:#9fc9c2;margin:12px 0 0;max-width:26ch">Réserver via ces liens nous aide à continuer — sans que ça vous coûte plus cher.</p></div><div style="flex:1 1 150px;min-width:140px"><p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5eead4;margin:4px 0 14px">Infos</p><a href="https://lucnsteveonleave.com/contact/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Contact</a><a href="https://lucnsteveonleave.com/politique-de-confidentialite/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Politique de confidentialité</a><a href="https://lucnsteveonleave.com/mentions-legales/" style="display:block;color:#e6fffa;text-decoration:none;font-size:.96rem;padding:4px 0">Mentions légales</a></div></div><div style="border-top:1px solid rgba(230,255,250,.16)"><div style="max-width:1200px;margin:0 auto;padding:16px 24px 20px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;font-size:.86rem;color:#9fc9c2"><span>© 2026 Luc 'n' Steve on Leave — Fait avec ❤️ quelque part ailleurs.</span><span>Québec · Mexique, au fil des saisons</span></div></div>
+</div>
     <script>
       var LANG = "fr";
       var EN_POSTS = [1452, 659, 176];
