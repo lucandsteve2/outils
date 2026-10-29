@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aperçu v2 — « À venir à Québec » (section pour le guide Québec)</title>
+<title>Aperçu v3 — « À venir à Québec » (sélecteur de mois)</title>
 <style>
   body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#123;background:#f6f9fa}
   .bandeau{background:#7a4b00;color:#fff;padding:10px 18px;font-size:.95rem;text-align:center}
@@ -14,10 +14,14 @@
   .intro{font-size:1.05rem;line-height:1.55}
   .fraicheur{background:#e6f2f4;border:1px solid #bcd8dd;border-radius:10px;
     padding:10px 14px;font-size:.95rem}
-  .groupe-titre{color:#0b4f6c;margin:24px 0 4px}
-  details.mois{background:#fff;border:1px solid #dde7ea;border-radius:12px;margin:12px 0;padding:4px 18px 10px}
-  details.mois summary{cursor:pointer;font-weight:bold;color:#0b4f6c;font-size:1.12rem;padding:10px 0}
-  .fiche{border-top:1px solid #e3edef;padding:13px 2px}
+  .sel-wrap input{position:absolute;opacity:0;pointer-events:none}
+  .sel-boutons{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px}
+  .sel-boutons label{border:2px solid #0b4f6c;background:#fff;color:#0b4f6c;border-radius:999px;
+    padding:8px 16px;font-size:1rem;cursor:pointer}
+  .panneau{display:none}
+  .mois-titre{color:#0b4f6c;margin:16px 0 2px}
+  .rubrique{color:#0e7c86;margin:18px 0 4px;font-size:1.05rem}
+  .fiche{background:#fff;border:1px solid #dde7ea;border-radius:12px;padding:14px 18px;margin:10px 0}
   .fiche h3{margin:0 0 6px;color:#0b4f6c;font-size:1.12rem}
   .fiche p{margin:5px 0}
   .dates{font-weight:bold}
@@ -26,53 +30,79 @@
   .lieu{color:#345}
   .prix{color:#345}
   .prix a{color:#0e7c86;font-weight:bold;text-decoration:none}
+  #m-2026-10:checked ~ .sel-boutons label[for="m-2026-10"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2026-10:checked ~ .sel-panneaux #p-2026-10{display:block}
+  #m-2026-11:checked ~ .sel-boutons label[for="m-2026-11"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2026-11:checked ~ .sel-panneaux #p-2026-11{display:block}
+  #m-2026-12:checked ~ .sel-boutons label[for="m-2026-12"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2026-12:checked ~ .sel-panneaux #p-2026-12{display:block}
+  #m-2027-01:checked ~ .sel-boutons label[for="m-2027-01"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2027-01:checked ~ .sel-panneaux #p-2027-01{display:block}
+  #m-2027-02:checked ~ .sel-boutons label[for="m-2027-02"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2027-02:checked ~ .sel-panneaux #p-2027-02{display:block}
+  #m-2027-03:checked ~ .sel-boutons label[for="m-2027-03"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2027-03:checked ~ .sel-panneaux #p-2027-03{display:block}
+  #m-2027-04:checked ~ .sel-boutons label[for="m-2027-04"]{background:#0b4f6c;color:#fff;border-color:#0b4f6c}
+  #m-2027-04:checked ~ .sel-panneaux #p-2027-04{display:block}
   footer{max-width:860px;margin:0 auto;padding:4px 18px 30px;color:#456;font-size:.9rem;line-height:1.5}
 </style>
 </head>
 <body>
-<div class="bandeau">APERÇU INTERNE V2 — section proposée pour le guide « Top activités à Québec » (page 994). Pas encore publiée.</div>
+<div class="bandeau">APERÇU INTERNE V3 — section proposée pour le guide « Top activités à Québec » (page 994). Pas encore publiée.</div>
 <header><h1>🎉 À venir à Québec</h1>
-<p>Les événements des six prochains mois à Québec et à Lévis, tels qu'ils apparaîtraient dans le guide.</p></header>
+<p>Choisis le mois de ton passage : chaque mois montre tout ce qui s'y déroule, y compris ce qui a commencé avant.</p></header>
 <div class="wrap">
-<p class="intro">Vous planifiez un passage à Québec? Voici ce qui s'y passe dans les six prochains
-mois — festivals, marchés, salons et grands rendez-vous. La règle de sélection est simple et
-affichée : tous les événements annoncés dans les données officielles du ministère du Tourisme du
-Québec qui commencent d'ici six mois. La liste se tient à jour toute seule : chaque semaine, les
-événements terminés disparaissent et les nouveaux apparaissent. Aucune rédaction inventée : le
-titre, les dates, le lieu et le lien officiel, tels que publiés par les organisateurs.</p>
+<p class="intro">Vous planifiez un passage à Québec? Sélectionnez le mois de votre séjour :
+vous verrez tout ce qui s'y passe — les événements qui commencent ce mois-là et ceux, comme les
+marchés de Noël, qui ont commencé avant mais qui battent leur plein pendant votre visite. La
+liste est nourrie par les données officielles du ministère du Tourisme du Québec et se tient à
+jour toute seule : chaque semaine, les événements terminés disparaissent et les nouveaux
+apparaissent. Aucune rédaction inventée : le titre, les dates, le lieu et le lien officiel, tels
+que publiés par les organisateurs.</p>
 <p class="fraicheur">🗓️ <strong>Liste à jour au 28 octobre 2026</strong> · Source : SIT Québec
-(Données Québec, CC-BY 4.0) · Rafraîchie chaque semaine · 23 événements affichés</p>
-<h2 class="groupe-titre">🟢 En ce moment</h2>
-<article class="fiche">
-<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
-<p class="dates">📅 Jusqu'au 8 mars 2027</p>
-<p class="chips"><span class="chip">Festival</span></p>
-<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
-<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
-</article>
+(Données Québec, CC-BY 4.0) · Rafraîchie chaque semaine · 23 événements dans la fenêtre de six mois</p>
+<div class="sel-wrap">
+<input type="radio" name="mois" id="m-2026-10" checked>
+<input type="radio" name="mois" id="m-2026-11">
+<input type="radio" name="mois" id="m-2026-12">
+<input type="radio" name="mois" id="m-2027-01">
+<input type="radio" name="mois" id="m-2027-02">
+<input type="radio" name="mois" id="m-2027-03">
+<input type="radio" name="mois" id="m-2027-04">
+<div class="sel-boutons">
+<label for="m-2026-10">Octobre · 5</label>
+<label for="m-2026-11">Novembre · 11</label>
+<label for="m-2026-12">Décembre · 8</label>
+<label for="m-2027-01">Janvier · 4</label>
+<label for="m-2027-02">Février · 8</label>
+<label for="m-2027-03">Mars · 5</label>
+<label for="m-2027-04">Avril · 2</label>
+</div>
+<div class="sel-panneaux">
+<section class="panneau" id="p-2026-10">
+<h2 class="mois-titre">Octobre 2026 — 5 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>L&#x27;Halloween sur les plaines d&#x27;Abraham</h3>
-<p class="dates">📅 Jusqu'au 17 novembre 2026</p>
+<p class="dates">📅 Du 1er octobre au 17 novembre 2026</p>
 <p class="chips"><span class="chip">Festival</span><span class="chip">Couleurs d&#x27;automne</span><span class="chip">Halloween</span></p>
 <p class="lieu">📍 Plaines d&#x27;Abraham · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://www.plainesdabraham.ca/search?q=halloween" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
 <article class="fiche">
 <h3>Un trésor caché. Un siècle de mystère</h3>
-<p class="dates">📅 Jusqu'au 1er janvier 2027</p>
+<p class="dates">📅 Du 9 octobre au 1er janvier 2027</p>
 <p class="chips"><span class="chip">Grande exposition</span></p>
 <p class="lieu">📍 179 Grande Allée Ouest · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://www.mnbaq.org/programmation/expositions/tresor-cache" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
 <article class="fiche">
 <h3>La Grande marche du Grand défi Pierre Lavoie</h3>
-<p class="dates">📅 Jusqu'au 13 juin 2027</p>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
 <p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
 <p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-<details class="mois" open>
-<summary>Octobre 2026 — 1 événement</summary>
 <article class="fiche">
 <h3>La Foire du VR</h3>
 <p class="dates">📅 Du 29 octobre au 1er novembre 2026</p>
@@ -80,9 +110,18 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 Centre de Foires - ExpoCité · 2005, rue de l’exposition · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://foireduvr.com/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
-<details class="mois">
-<summary>Novembre 2026 — 6 événements</summary>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
+<p class="dates">📅 Du 21 février au 8 mars 2027</p>
+<p class="chips"><span class="chip">Festival</span></p>
+<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+<section class="panneau" id="p-2026-11">
+<h2 class="mois-titre">Novembre 2026 — 11 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>La Grande Braderie de mode québécoise - Québec</h3>
 <p class="dates">📅 Du 5 novembre au 7 novembre 2026</p>
@@ -125,9 +164,46 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 Centre de foires de Québec · 2005 rue de l&#x27;Exposition · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://groupeproexpo.com/artisans/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
-<details class="mois">
-<summary>Décembre 2026 — 1 événement</summary>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>La Foire du VR</h3>
+<p class="dates">📅 Du 29 octobre au 1er novembre 2026</p>
+<p class="chips"><span class="chip">Salon / foire</span></p>
+<p class="lieu">📍 Centre de Foires - ExpoCité · 2005, rue de l’exposition · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://foireduvr.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>L&#x27;Halloween sur les plaines d&#x27;Abraham</h3>
+<p class="dates">📅 Du 1er octobre au 17 novembre 2026</p>
+<p class="chips"><span class="chip">Festival</span><span class="chip">Couleurs d&#x27;automne</span><span class="chip">Halloween</span></p>
+<p class="lieu">📍 Plaines d&#x27;Abraham · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.plainesdabraham.ca/search?q=halloween" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Un trésor caché. Un siècle de mystère</h3>
+<p class="dates">📅 Du 9 octobre au 1er janvier 2027</p>
+<p class="chips"><span class="chip">Grande exposition</span></p>
+<p class="lieu">📍 179 Grande Allée Ouest · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.mnbaq.org/programmation/expositions/tresor-cache" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
+<p class="dates">📅 Du 21 février au 8 mars 2027</p>
+<p class="chips"><span class="chip">Festival</span></p>
+<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>La Grande marche du Grand défi Pierre Lavoie</h3>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
+<p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
+<p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+<section class="panneau" id="p-2026-12">
+<h2 class="mois-titre">Décembre 2026 — 8 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>Festival Kaléidoscopes</h3>
 <p class="dates">📅 Du 27 décembre au 31 décembre 2026</p>
@@ -135,9 +211,60 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 Jardins de l&#x27;Hôtel-de-Ville · 2 Rue des Jardins · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://www.kaleidoqc.ca/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
-<details class="mois">
-<summary>Janvier 2027 — 1 événement</summary>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>Salon des artisans de Québec</h3>
+<p class="dates">📅 Du 27 novembre au 6 décembre 2026</p>
+<p class="chips"><span class="chip">Marché de Noël</span><span class="chip">Métiers d&#x27;art</span><span class="chip">Noël</span></p>
+<p class="lieu">📍 Centre de foires de Québec · 2005 rue de l&#x27;Exposition · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://groupeproexpo.com/artisans/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Marché de Noël Sapins Goupil</h3>
+<p class="dates">📅 Du 21 novembre au 19 décembre 2026</p>
+<p class="chips"><span class="chip">Marché de Noël</span><span class="chip">Noël</span></p>
+<p class="lieu">📍 519 Avenue des Ruisseaux · Lévis</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.groupe-goupil.com/sapins-goupil" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Marché de Noël allemand de Québec</h3>
+<p class="dates">📅 Du 19 novembre au 23 décembre 2026</p>
+<p class="chips"><span class="chip">Marché de Noël</span><span class="chip">Noël</span></p>
+<p class="lieu">📍 Jardins de l&#x27;Hôtel-de-Ville · 2 Rue des Jardins · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.mnaq.ca" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Le Grand Marché de Noël à Québec</h3>
+<p class="dates">📅 Du 21 novembre au 24 décembre 2026</p>
+<p class="chips"><span class="chip">Marché de Noël</span><span class="chip">Noël</span></p>
+<p class="lieu">📍 250-M, boul. Wilfrid-Hamel · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.legrandmarchedequebec.com/fr/programmation/marches-thematiques/le-grand-marche-de-noel/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Un trésor caché. Un siècle de mystère</h3>
+<p class="dates">📅 Du 9 octobre au 1er janvier 2027</p>
+<p class="chips"><span class="chip">Grande exposition</span></p>
+<p class="lieu">📍 179 Grande Allée Ouest · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.mnbaq.org/programmation/expositions/tresor-cache" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
+<p class="dates">📅 Du 21 février au 8 mars 2027</p>
+<p class="chips"><span class="chip">Festival</span></p>
+<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>La Grande marche du Grand défi Pierre Lavoie</h3>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
+<p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
+<p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+<section class="panneau" id="p-2027-01">
+<h2 class="mois-titre">Janvier 2027 — 4 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>Salon national de la pourvoirie de Lévis</h3>
 <p class="dates">📅 Du 14 janvier au 17 janvier 2027</p>
@@ -145,9 +272,32 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 Centre des Congrès de Lévis · 5750 Rue J.-B.- Michaud · Lévis</p>
 <p class="prix">Prix : voir le site officiel · <a href="http://www.pourvoirie.net/salon-de-quebec/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
-<details class="mois">
-<summary>Février 2027 — 6 événements</summary>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>Un trésor caché. Un siècle de mystère</h3>
+<p class="dates">📅 Du 9 octobre au 1er janvier 2027</p>
+<p class="chips"><span class="chip">Grande exposition</span></p>
+<p class="lieu">📍 179 Grande Allée Ouest · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://www.mnbaq.org/programmation/expositions/tresor-cache" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
+<p class="dates">📅 Du 21 février au 8 mars 2027</p>
+<p class="chips"><span class="chip">Festival</span></p>
+<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>La Grande marche du Grand défi Pierre Lavoie</h3>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
+<p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
+<p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+<section class="panneau" id="p-2027-02">
+<h2 class="mois-titre">Février 2027 — 8 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>Expo habitat Québec</h3>
 <p class="dates">📅 Du 4 février au 7 février 2027</p>
@@ -190,9 +340,25 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 Plaines d&#x27;Abraham · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="http://www.pentathlondesneiges.com/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
-<details class="mois">
-<summary>Mars 2027 — 3 événements</summary>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
+<p class="dates">📅 Du 21 février au 8 mars 2027</p>
+<p class="chips"><span class="chip">Festival</span></p>
+<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>La Grande marche du Grand défi Pierre Lavoie</h3>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
+<p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
+<p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+<section class="panneau" id="p-2027-03">
+<h2 class="mois-titre">Mars 2027 — 5 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>L&#x27;International de l&#x27;auto de Québec</h3>
 <p class="dates">📅 Du 2 mars au 7 mars 2027</p>
@@ -214,9 +380,25 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 PEPS de l&#x27;Université Laval · 2300 Rue de la Terrasse · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="http://www.competitionidance.com" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
-<details class="mois">
-<summary>Avril 2027 — 1 événement</summary>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>Gougoune et doudoune, une production du Carnaval de Québec</h3>
+<p class="dates">📅 Du 21 février au 8 mars 2027</p>
+<p class="chips"><span class="chip">Festival</span></p>
+<p class="lieu">📍 Quais de l&#x27;Espace 400 · 100 Quai Saint-André · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://carnaval.qc.ca/gougoune-et-doudoune/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+<article class="fiche">
+<h3>La Grande marche du Grand défi Pierre Lavoie</h3>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
+<p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
+<p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+<section class="panneau" id="p-2027-04">
+<h2 class="mois-titre">Avril 2027 — 2 événements</h2>
+<h3 class="rubrique">✨ Ça commence</h3>
 <article class="fiche">
 <h3>Salon international du livre de Québec</h3>
 <p class="dates">📅 Du 7 avril au 11 avril 2027</p>
@@ -224,17 +406,28 @@ titre, les dates, le lieu et le lien officiel, tels que publiés par les organis
 <p class="lieu">📍 Centre des congrès de Québec · 1000, boulevard René-Lévesque Est · Québec</p>
 <p class="prix">Prix : voir le site officiel · <a href="https://silq.ca/" target="_blank" rel="noopener">Site officiel →</a></p>
 </article>
-</details>
+<h3 class="rubrique">🔁 Ça se poursuit</h3>
+<article class="fiche">
+<h3>La Grande marche du Grand défi Pierre Lavoie</h3>
+<p class="dates">📅 Du 16 octobre au 13 juin 2027</p>
+<p class="chips"><span class="chip">Manifestation sportive</span><span class="chip">Santé et mieux-être</span><span class="chip">Sports et plein air</span></p>
+<p class="lieu">📍 Université Laval · 2325 Rue de l&#x27;Université · Québec</p>
+<p class="prix">Prix : voir le site officiel · <a href="https://onmarche.com/" target="_blank" rel="noopener">Site officiel →</a></p>
+</article>
+</section>
+</div>
+</div>
 </div>
 <footer>
-<p><strong>Méthode.</strong> Extraction du jeu « Événements » du SIT Québec, fenêtre glissante de
-six mois (début de l'événement au plus tard le 28 avril 2027 pour cette édition), municipalités de
-Québec et Lévis. Les prix et les distances ne figurent pas dans ces données et ne sont pas
-ajoutés. En production : rafraîchissement automatique hebdomadaire, comme le calculateur
-« Vrai coût » — si le flux source est en panne, la dernière liste valide reste affichée avec sa
-vraie date.</p>
-<p>Luc N Steve — aperçu interne v2, intègre les conditions de Cooper (sélection expliquée,
-affichage allégé par mois, fraîcheur visible, mention des prix).</p>
+<p><strong>Méthode.</strong> Extraction du jeu « Événements » du SIT Québec ; fenêtre de six mois
+(début de l'événement au plus tard le 28 avril 2027 pour cette édition), municipalités de Québec
+et Lévis. Chaque mois affiche les événements présents ce mois-là : « Ça commence » (début dans
+le mois, triés par date de début) et « Ça se poursuit » (commencés avant, triés par date de fin).
+Sélecteur de mois en CSS pur, comme le sélecteur de villes des Destinations — aucun JavaScript.
+Les prix et les distances ne figurent pas dans ces données et ne sont pas ajoutés. En
+production : rafraîchissement automatique hebdomadaire ; si le flux source est en panne, la
+dernière liste valide reste affichée avec sa vraie date.</p>
+<p>Luc N Steve — aperçu interne v3 (sélecteur de mois + mois de présence, sur les remarques de Luc ; conditions de Cooper conservées).</p>
 </footer>
 </body>
 </html>
