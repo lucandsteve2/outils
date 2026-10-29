@@ -35,7 +35,7 @@
       html{scroll-behavior:smooth}
       body{margin:0;background:var(--bg);color:var(--ink);
         font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-        font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+        font-size:17px;line-height:1.65}
       .wrap{max-width:880px;margin:0 auto;padding:0 20px 64px}
       h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.12;margin:0}
       h2{font-size:clamp(27px,4vw,34px);letter-spacing:-.01em;color:var(--teal-dark)}
@@ -198,10 +198,10 @@
       /* Chrome unifié (2026-10-28) : en-tête et pied identiques au site principal. */
       .ls-head{ background:#0c262b; color:#fff; width:100%; position:sticky; top:0; z-index:60; }
       .ls-head-in{ max-width:1200px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px 26px; flex-wrap:wrap; }
-      .ls-brand{ display:flex; align-items:center; gap:12px; color:#fff; text-decoration:none; font-family:"DM Serif Display",Georgia,serif; font-size:21px; letter-spacing:.01em; white-space:nowrap; }
+      .ls-brand{ display:flex; align-items:center; gap:12px; color:#fff; text-decoration:none; font-family:"DM Serif Display",Georgia,serif; font-size:21px; white-space:nowrap; }
       .ls-brand img{ width:46px; height:46px; border-radius:50%; object-fit:cover; display:block; }
       .ls-brand span{ color:#5eead4; }
-      .ls-nav{ display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:15.5px; font-weight:600; }
+      .ls-nav{ display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.139), 15.5px); font-weight:600; }
       .ls-nav a{ color:#fff; text-decoration:none; opacity:.92; }
       .ls-nav a:hover{ opacity:1; text-decoration:underline; }
       .ls-lang{ position:relative; opacity:.92; }
@@ -229,7 +229,7 @@
 </head>
   <body>
     <!-- En-tête du site (pleine largeur) -->
-    <header class="ls-head"><div class="ls-head-in"><a class="ls-brand" href="https://lucnsteveonleave.com/en/"><img src="/favicon.png" alt="Logo Luc ‘n’ Steve">Luc ‘n’ Steve <span>on Leave</span></a><nav class="ls-nav"><a href="https://lucnsteveonleave.com/en/destinations/">Our destinations</a><a href="https://lucnsteveonleave.com/en/blog/">The blog</a><a href="https://lucnsteveonleave.com/en/deals/">Our Best Deals</a><a href="https://outils.lucnsteveonleave.com/en/">Tools</a><a href="https://lucnsteveonleave.com/about/">About</a><a href="https://lucnsteveonleave.com/en/contact/">Contact</a><a href="https://outils.lucnsteveonleave.com/en/search/">🔍 Search</a><span class="ls-lang"><button class="ls-lang-btn" type="button" aria-haspopup="true">🌐 <span class="ls-caret">▾</span></button><span class="ls-lang-menu"><a href="https://outils.lucnsteveonleave.com/">Français</a><a href="https://outils.lucnsteveonleave.com/en/">English</a><a href="https://outils.lucnsteveonleave.com/es/">Español</a></span></span></nav></div></header>
+    <header class="ls-head"><div class="ls-head-in"><a class="ls-brand" href="https://lucnsteveonleave.com/en/"><img src="/favicon.png" alt="Logo Luc ‘n’ Steve"><span class="ls-brand-tx">Luc ‘n’ Steve <span>on Leave</span></span></a><nav class="ls-nav"><a href="https://lucnsteveonleave.com/en/destinations/">Our destinations</a><a href="https://lucnsteveonleave.com/en/blog/">The blog</a><a href="https://lucnsteveonleave.com/en/deals/">Our Best Deals</a><a href="https://outils.lucnsteveonleave.com/en/">Tools</a><a href="https://lucnsteveonleave.com/about/">About</a><a href="https://lucnsteveonleave.com/en/contact/">Contact</a><a href="https://outils.lucnsteveonleave.com/en/search/">🔍 Search</a><span class="ls-lang"><button class="ls-lang-btn" type="button" aria-haspopup="true">🌐 <span class="ls-caret">▾</span></button><span class="ls-lang-menu"><a href="https://outils.lucnsteveonleave.com/">Français</a><a href="https://outils.lucnsteveonleave.com/en/">English</a><a href="https://outils.lucnsteveonleave.com/es/">Español</a></span></span></nav></div></header>
 
     <div class="wrap">
 
