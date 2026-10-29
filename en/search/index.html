@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Search — Luc 'n' Steve on Leave</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root{ --bg:#f7f3ec; --panel:#ffffff; --ink:#12302e; --ink-soft:#526b68; --line:#d7dee2; --teal:#0d9488; --teal-dark:#0b3d3a; --mint:#5eead4; }
+      *{ box-sizing:border-box; }
+      body{ margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif; }
+      header{ background:var(--teal-dark); color:#e6fffa; }
+      .hwrap{ max-width:1000px; margin:0 auto; padding:16px 20px; display:flex; flex-wrap:wrap; gap:10px 26px; align-items:center; justify-content:space-between; }
+      .brand{ font-family:"DM Serif Display",Georgia,serif; font-size:1.35rem; color:#fff; text-decoration:none; }
+      .brand span{ color:var(--mint); }
+      nav a{ color:#e6fffa; text-decoration:none; font-size:.95rem; margin-left:18px; }
+      main{ max-width:1000px; margin:0 auto; padding:34px 20px 50px; }
+      h1{ font-family:"DM Serif Display",Georgia,serif; font-size:2.1rem; margin:0 0 8px; color:var(--teal-dark); }
+      .sub{ color:var(--ink-soft); margin:0 0 22px; line-height:1.55; }
+      .langline{ font-size:.9rem; margin:0 0 20px; }
+      .langline a{ color:var(--teal); }
+      #q{ width:100%; font-size:1.15rem; padding:14px 18px; border:2px solid var(--line); border-radius:999px; outline:none; background:#fff; color:var(--ink); }
+      #q:focus{ border-color:var(--teal); }
+      #etat{ color:var(--ink-soft); margin:16px 2px; font-size:.95rem; }
+      .carte{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; margin:0 0 16px; display:flex; gap:16px; flex-wrap:wrap; }
+      .carte img{ width:230px; max-width:100%; height:auto; border-radius:10px; display:block; }
+      .carte .txt{ flex:1 1 300px; min-width:230px; }
+      .carte h2{ font-size:1.15rem; margin:2px 0 8px; line-height:1.35; }
+      .carte h2 a{ color:var(--teal-dark); text-decoration:none; }
+      .carte p{ margin:0; color:var(--ink-soft); line-height:1.55; font-size:.95rem; }
+      footer{ border-top:1px solid var(--line); }
+      .fwrap{ max-width:1000px; margin:0 auto; padding:16px 20px 26px; color:var(--ink-soft); font-size:.88rem; display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; }
+      footer a{ color:var(--teal); text-decoration:none; }
+    </style>
+  </head>
+  <body>
+    <header><div class="hwrap">
+      <a class="brand" href="https://lucnsteveonleave.com/en/">Luc 'n' Steve <span>on Leave</span></a>
+      <nav><a href="https://lucnsteveonleave.com/en/destinations/">Our destinations</a><a href="https://lucnsteveonleave.com/en/blog/">The blog</a><a href="https://lucnsteveonleave.com/en/deals/">Our Best Deals</a></nav>
+    </div></header>
+    <main>
+      <h1>Search</h1>
+      <p class="sub">Search our destinations, guides and articles — in English only.</p>
+      <p class="langline"><a href="https://outils.lucnsteveonleave.com/recherche/">Version française</a> · <a href="https://outils.lucnsteveonleave.com/es/buscar/">Versión en español</a></p>
+      <input id="q" type="search" placeholder="E.g.: Merida, budget, car…" aria-label="Search" autocomplete="off" />
+      <p id="etat">Loading the catalogue…</p>
+      <div id="resultats"></div>
+    </main>
+    <footer><div class="fwrap">
+      <span>© 2026 Luc 'n' Steve on Leave</span>
+      <a href="https://lucnsteveonleave.com/en/">Back to the site</a>
+    </div></footer>
+    <script>
+      var LANG = "en";
+      var EN_POSTS = [1452, 659, 176];
+      var ES_POSTS = [1439, 662, 218];
+      var EXCLURE = [624];
+      var API = "https://public-api.wordpress.com/wp/v2/sites/lucnsteveonleave.com";
+      var MSG = { aucun: "No results — try another word, like a destination.", resultats: "result(s)", erreur: "Search could not load the catalogue. Please try again in a moment.", astuce: "Type at least 2 letters — destinations, guides and articles in English." };
+      var catalogue = [];
+      function texte(html){ var d = document.createElement("div"); d.innerHTML = html || ""; return (d.textContent || "").replace(/\s+/g, " ").trim(); }
+      function norme(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+      function langueDe(item, estArticle){
+        if (EXCLURE.indexOf(item.id) >= 0) return null;
+        if (item.link.indexOf("/en/") >= 0) return "en";
+        if (item.link.indexOf("/es/") >= 0) return "es";
+        if (estArticle && EN_POSTS.indexOf(item.id) >= 0) return "en";
+        if (estArticle && ES_POSTS.indexOf(item.id) >= 0) return "es";
+        return "fr";
+      }
+      function charger(url, estArticle){
+        return fetch(url).then(function(r){ return r.json(); }).then(function(items){
+          items.forEach(function(item){
+            if (langueDe(item, estArticle) !== LANG) return;
+            var img = null;
+            try { img = item._embedded["wp:featuredmedia"][0].source_url; } catch(e) {}
+            catalogue.push({ titre: texte(item.title.rendered), extrait: texte(item.excerpt.rendered), lien: item.link, img: img,
+                             cherche: norme(texte(item.title.rendered) + " " + texte(item.excerpt.rendered)) });
+          });
+        });
+      }
+      var etat = document.getElementById("etat"), boite = document.getElementById("resultats"), champ = document.getElementById("q");
+      Promise.all([ charger(API + "/pages?per_page=100&status=publish&_embed=1", false),
+                    charger(API + "/posts?per_page=100&status=publish&_embed=1", true) ])
+        .then(function(){ etat.textContent = MSG.astuce; var q0 = new URLSearchParams(location.search).get("q"); if (q0) { champ.value = q0; chercher(); } })
+        .catch(function(){ etat.textContent = MSG.erreur; });
+      function chercher(){
+        var q = norme(champ.value.trim());
+        if (q.length < 2) { boite.innerHTML = ""; etat.textContent = MSG.astuce; return; }
+        var res = catalogue.filter(function(e){ return e.cherche.indexOf(q) >= 0; });
+        etat.textContent = res.length ? (res.length + " " + MSG.resultats) : MSG.aucun;
+        boite.innerHTML = res.map(function(e){
+          var img = e.img ? '<a href="' + e.lien + '"><img src="' + e.img + '" alt="" loading="lazy" /></a>' : "";
+          var ext = e.extrait.length > 200 ? e.extrait.slice(0, 200) + "…" : e.extrait;
+          return '<article class="carte">' + img + '<div class="txt"><h2><a href="' + e.lien + '">' + e.titre + '</a></h2><p>' + ext + '</p></div></article>';
+        }).join("");
+      }
+      champ.addEventListener("input", chercher);
+    </script>
+  </body>
+</html>
