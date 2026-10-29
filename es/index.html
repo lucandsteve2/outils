@@ -250,11 +250,11 @@
         <div class="field">
           <label for="budget">Tu presupuesto mensual en Quebec</label>
           <div class="money">
-            <input type="number" id="budget" min="0" step="50" value="4300" inputmode="numeric" />
+            <input type="number" id="budget" min="500" max="10000" step="50" value="4300" inputmode="numeric" />
             <span>$ / mes</span>
           </div>
-          <p class="help">Monto mensual total, en dólares canadienses. Deja el ejemplo de 4 300 $ o introduce el tuyo.</p>
-          <p class="err" id="budgetErr">Introduce un presupuesto mensual válido —un monto mayor que 0 $— para ver el resultado.</p>
+          <p class="help">Monto mensual total, en dólares canadienses —entre 500 $ y 10 000 $—. Deja el ejemplo de 4 300 $ o introduce el tuyo.</p>
+          <p class="err" id="budgetErr">Introduce un presupuesto mensual entre 500 $ y 10 000 $ para ver el resultado.</p>
         </div>
 
         <div class="field">
@@ -320,7 +320,7 @@
 
       function render(){
         var v = parseFloat($("budget").value);
-        var bad = isNaN(v) || v <= 0;
+        var bad = isNaN(v) || v < 500 || v > 10000;
         $("budgetErr").style.display = bad ? "block" : "none";
         var total = bad ? 0 : v;
         var mois = parseInt($("mois").value, 10);
