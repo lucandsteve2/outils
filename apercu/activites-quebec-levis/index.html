@@ -29,6 +29,7 @@
   h2{margin:2rem 0 .4rem;font-size:1.35rem;color:var(--petrole)}
   h2 .sub{display:block;font-size:.92rem;font-weight:normal;color:#4b6570;margin-top:.2rem}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-top:1rem}
+  .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
   .card{background:var(--carte);border:1px solid var(--bord);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
   .bandeau{padding:.55rem .9rem;color:#fff;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;background:linear-gradient(90deg,var(--petrole),var(--sarcelle))}
   .bandeau.hiver{background:linear-gradient(90deg,#31597a,var(--sarcelle))}
@@ -68,7 +69,7 @@
   </div>
 </header>
 
-<div class="hero">
+<div class="hero" style="background:linear-gradient(105deg,rgba(6,43,56,.88) 30%,rgba(6,43,56,.35) 70%,rgba(6,43,56,.15)),url('https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Ch%C3%A2teau_Frontenac_after_a_freezing_rain_day_in_Quebec_city.jpg/1280px-Ch%C3%A2teau_Frontenac_after_a_freezing_rain_day_in_Quebec_city.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail') center 62%/cover no-repeat">
   <div class="hero-in">
     <p class="kicker">Québec et Lévis · Activités</p>
     <h1>Quoi faire à Québec et Lévis</h1>
@@ -84,7 +85,7 @@
   <h2>❄️ L’hiver, la grande saison <span class="sub">De décembre à mars, c’est le moment où la ville joue sa meilleure main : neige, glace, festivals — et des activités qu’on ne peut faire qu’ici, qu’à ce temps-ci de l’année.</span></h2>
 
   <div class="grid">
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Petit_Champlain_at_night%2C_Quebec_city.jpg/1280px-Petit_Champlain_at_night%2C_Quebec_city.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="Le Petit-Champlain sous la neige, le soir">
       <div class="bandeau hiver">Hiver · Le classique</div>
       <div class="corps">
         <h3>Visite guidée à pied hivernale du Vieux-Québec</h3>
@@ -94,7 +95,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Jacques-Cartier_NP1.jpg/1280px-Jacques-Cartier_NP1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="La vallée de la Jacques-Cartier">
       <div class="bandeau hiver">Hiver · Plein air</div>
       <div class="corps">
         <h3>Randonnée en raquettes — parc national de la Jacques-Cartier</h3>
@@ -104,7 +105,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Snowshoeing_in_Troms%2C_Norway.jpg/1280px-Snowshoeing_in_Troms%2C_Norway.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="Raquettes en forêt enneigée">
       <div class="bandeau hiver">Hiver · L’insolite</div>
       <div class="corps">
         <h3>Raquettes sur neige avec chèvres de montagne (activité privée)</h3>
@@ -114,7 +115,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Ice-Hotel_Quebec_Canada.jpg/1280px-Ice-Hotel_Quebec_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="L'Hôtel de Glace de Québec">
       <div class="bandeau libre">Hiver · En autonomie</div>
       <div class="corps">
         <h3>L’Hôtel de Glace, à Valcartier</h3>
@@ -128,7 +129,7 @@
   <h2>⭐ Les valeurs sûres, toute l’année <span class="sub">Les activités établies de la destination, celles que notre guide de Québec recommande déjà — notes et avis constatés à l’automne 2026.</span></h2>
 
   <div class="grid">
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Rue_du_Petit_Champlain.jpg/1280px-Rue_du_Petit_Champlain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="La rue du Petit-Champlain, dans le Vieux-Québec">
       <div class="bandeau">Toute l’année · Le mieux établi</div>
       <div class="corps">
         <h3>Visite à pied du Vieux-Québec — Tours Voir Québec</h3>
@@ -138,7 +139,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/%C3%8Ele_d%27Orl%C3%A9ans_009.jpg/1280px-%C3%8Ele_d%27Orl%C3%A9ans_009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="La campagne de l'île d'Orléans">
       <div class="bandeau">Toute l’année · Gourmand</div>
       <div class="corps">
         <h3>Le tour des saveurs de l’île d’Orléans</h3>
@@ -148,7 +149,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Montmorency_falls_from_above_winter.JPG/1280px-Montmorency_falls_from_above_winter.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="La chute Montmorency en hiver, vue d'en haut">
       <div class="bandeau">Toute l’année · Avec un bémol</div>
       <div class="corps">
         <h3>Chute Montmorency et Sainte-Anne-de-Beaupré (excursion)</h3>
@@ -158,7 +159,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card"><img class="card-img" loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Qu%C3%A9bec_city_at_night%2C_view_from_L%C3%A9vis_city.jpg/1280px-Qu%C3%A9bec_city_at_night%2C_view_from_L%C3%A9vis_city.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" alt="Québec la nuit, vue depuis Lévis, de l'autre côté du fleuve">
       <div class="bandeau">Toute l’année · Sur le fleuve</div>
       <div class="corps">
         <h3>Croisière guidée sur le Saint-Laurent — Croisières AML</h3>
@@ -175,6 +176,7 @@
     <a class="btn" href="https://lucnsteveonleave.com/a-venir-au-quebec/">Voir les événements à venir →</a>
   </div>
 
+  <p class="petit" style="margin-top:1.2rem">📷 <strong>Photos de cette démo</strong> (Wikimedia Commons, licences libres) : Château Frontenac après le verglas — Wilfredor (CC BY-SA 4.0) · Petit-Champlain la nuit — Wilfredor (CC0) · vallée de la Jacques-Cartier — Cephas (CC BY-SA 3.0) · raquettes en forêt — Christoph Strässler (CC BY-SA 2.0) · Hôtel de Glace — Marc-Lautenbacher (CC BY-SA 4.0) · rue du Petit-Champlain — The Cosmonaut (CC BY-SA 2.5 ca) · île d’Orléans — Wilfredor (CC0) · chute Montmorency en hiver — Martin Shiels (CC BY-SA 3.0) · Québec la nuit depuis Lévis — Wilfredor (CC BY-SA 4.0). Sur la page finale, la priorité ira à nos propres photos.</p>
   <p class="petit" style="margin-top:1.4rem"><strong>Comment on choisit :</strong> notes et nombres d’avis constatés sur Viator le 30 octobre 2026 ; prix « à partir de », par personne, en dollars canadiens, variables selon la date choisie. La sélection repose sur les avis des voyageurs ; quand un produit a un vrai bémol (note plus faible, rythme rapide), on l’écrit plutôt que de le cacher. Les liens sont vérifiés chaque mois ; un produit qui ferme ou qui décline sort de la page.</p>
 
   <div class="cta">
