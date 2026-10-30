@@ -117,7 +117,8 @@
       function chercher(){
         var q = norme(champ.value.trim());
         if (q.length < 2) { boite.innerHTML = ""; etat.textContent = MSG.astuce; return; }
-        var res = catalogue.filter(function(e){ return e.cherche.indexOf(q) >= 0; });
+        var mots = q.split(/\s+/).filter(Boolean);
+        var res = catalogue.filter(function(e){ return mots.every(function(m){ return e.cherche.indexOf(m) >= 0; }); });
         etat.textContent = res.length ? (res.length + " " + MSG.resultats) : MSG.aucun;
         boite.innerHTML = res.map(function(e){
           var img = e.img ? '<a href="' + e.lien + '"><img src="' + e.img + '" alt="" loading="lazy" /></a>' : "";
