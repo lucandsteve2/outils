@@ -121,8 +121,9 @@
       var ES_POSTS = [1439, 662, 218];
       var EXCLURE = [624];
       var API = "https://public-api.wordpress.com/wp/v2/sites/lucnsteveonleave.com";
-      var MSG = { aucun: "No results — try another word, like a destination.", resultats: "result(s)", erreur: "Search could not load the catalogue. Please try again in a moment.", astuce: "Type at least 2 letters — destinations, guides and articles in English." };
+      var MSG = { aucun: "No results — try another word, like a destination.", resultats: "result(s)", erreur: "Search could not load the catalogue. Please try again in a moment.", chargement: "Loading the catalogue…", astuce: "Type at least 2 letters — destinations, guides and articles in English." };
       var catalogue = [];
+      var pret = false;
       function texte(html){ var d = document.createElement("div"); d.innerHTML = html || ""; return (d.textContent || "").replace(/\s+/g, " ").trim(); }
       function norme(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
       function langueDe(item, estArticle){
@@ -147,10 +148,11 @@
       var etat = document.getElementById("etat"), boite = document.getElementById("resultats"), champ = document.getElementById("q");
       Promise.all([ charger(API + "/pages?per_page=100&status=publish&_embed=1", false),
                     charger(API + "/posts?per_page=100&status=publish&_embed=1", true) ])
-        .then(function(){ etat.textContent = MSG.astuce; var q0 = new URLSearchParams(location.search).get("q"); if (q0) { champ.value = q0; chercher(); } })
+        .then(function(){ pret = true; etat.textContent = MSG.astuce; var q0 = new URLSearchParams(location.search).get("q"); if (q0) { champ.value = q0; } if (champ.value.trim().length >= 2) { chercher(); } })
         .catch(function(){ etat.textContent = MSG.erreur; });
       function chercher(){
         var q = norme(champ.value.trim());
+        if (!pret && q.length >= 2) { boite.innerHTML = ""; etat.textContent = MSG.chargement; return; }
         if (q.length < 2) { boite.innerHTML = ""; etat.textContent = MSG.astuce; return; }
         var mots = q.split(/\s+/).filter(Boolean);
         var res = catalogue.filter(function(e){ return mots.every(function(m){ return e.cherche.indexOf(m) >= 0; }); });
