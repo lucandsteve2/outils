@@ -97,6 +97,10 @@
 
 /* GLOBE DANS LE MENU (2026-10-30) : le globe est le dernier item du menu, comme dans WordPress — le menu entier reagit d'une seule piece a toutes les largeurs ; lignes repliees alignees a gauche comme WordPress */
 .ls-nav{ justify-content:flex-start; }
+
+/* TITRE PLIABLE (2026-10-30) : comme WordPress, le titre de marque se plie quand l'espace manque, au lieu de forcer le menu a se replier ; le logo, lui, garde sa taille */
+.ls-brand{ flex:0 1 auto; min-width:0; white-space:normal; }
+.ls-brand img{ flex:none; }
 </style>
   </head>
   <body>
