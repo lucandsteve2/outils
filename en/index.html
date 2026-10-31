@@ -262,6 +262,12 @@
 
 /* EN-TETE UNE LIGNE (2026-10-30) : conteneur elargi, comme l'en-tete WordPress */
 .ls-head-in{ max-width:1440px; }
+
+/* EN-TETE ROBUSTE (2026-10-30) : la navigation se replie a l'interne, jamais de depassement ni d'orphelin */
+.ls-head-in{ flex-wrap:nowrap; }
+.ls-brand{ flex:none; }
+.ls-nav{ min-width:0; justify-content:flex-end; }
+.ls-lang{ flex:none; }
 </style>
 </head>
   <body>
