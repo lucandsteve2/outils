@@ -67,7 +67,15 @@
       .ls-nav.open .ls-lang-menu::before{ display:none; }
       .ls-nav.open .ls-lang-menu a{ white-space:normal; padding:7px 0; }
       }
-    </style>
+    
+/* MENU-SURVOL (2026-10-30) : pastille teal en fondu au survol, comme sur le site principal */
+.ls-nav{ gap:10px; }
+.ls-nav a{ border-radius:999px; padding:.35rem .7rem; transition:background-color .22s ease, opacity .22s ease; }
+.ls-nav a:hover{ background:rgba(94,234,212,.18); opacity:1; text-decoration:none; }
+.ls-lang-btn{ border-radius:999px; padding:.35rem .45rem; transition:background-color .22s ease; }
+.ls-lang-btn:hover{ background:rgba(94,234,212,.18); }
+.ls-lang-menu a{ border-radius:0; padding:7px 16px; }
+</style>
   </head>
   <body>
     <header class="ls-head"><div class="ls-head-in"><a class="ls-brand" href="https://lucnsteveonleave.com/en/"><img src="/favicon.png" alt="Logo Luc ‘n’ Steve"><span class="ls-brand-tx">Luc ‘n’ Steve <span class="ls-onleave">on Leave</span></span></a><nav class="ls-nav"><a href="https://lucnsteveonleave.com/en/destinations/">Our destinations</a><a href="https://lucnsteveonleave.com/en/blog/">The blog</a><a href="https://lucnsteveonleave.com/en/deals/">Our Best Deals</a><a href="https://lucnsteveonleave.com/en/travel-money/">Travel + Money</a><span class="ls-lang ls-outils"><a href="https://lucnsteveonleave.com/en/tools/">Tools</a> <button class="ls-lang-btn" type="button" aria-haspopup="true" aria-label="Tools submenu"><span class="ls-caret">▾</span></button><span class="ls-lang-menu"><a href="https://lucnsteveonleave.com/en/real-cost-of-living-mexico-vs-quebec/">Real Cost of Living: Québec vs Mexico</a><a href="https://lucnsteveonleave.com/en/upcoming-events-in-quebec/">Upcoming Events in Québec</a></span></span><a href="https://lucnsteveonleave.com/about/">About</a><a href="https://lucnsteveonleave.com/en/contact/">Contact</a><a href="https://outils.lucnsteveonleave.com/en/search/">🔍 Search</a></nav><span class="ls-lang"><button class="ls-lang-btn" type="button" aria-haspopup="true">🌐 <span class="ls-caret">▾</span></button><span class="ls-lang-menu"><a href="https://outils.lucnsteveonleave.com/recherche/">Français</a><a href="https://outils.lucnsteveonleave.com/en/search/">English</a><a href="https://outils.lucnsteveonleave.com/es/buscar/">Español</a></span></span><button class="ls-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button></div></header>
