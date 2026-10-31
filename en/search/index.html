@@ -120,6 +120,7 @@
       var EN_POSTS = [1452, 659, 176];
       var ES_POSTS = [1439, 662, 218];
       var EXCLURE = [624];
+      var EN_PAGES = [177];
       var API = "https://public-api.wordpress.com/wp/v2/sites/lucnsteveonleave.com";
       var MSG = { aucun: "No results — try another word, like a destination.", resultats: "result(s)", erreur: "Search could not load the catalogue. Please try again in a moment.", chargement: "Loading the catalogue…", astuce: "Type at least 2 letters — destinations, guides and articles in English." };
       var catalogue = [];
@@ -128,6 +129,7 @@
       function norme(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
       function langueDe(item, estArticle){
         if (EXCLURE.indexOf(item.id) >= 0) return null;
+        if (!estArticle && EN_PAGES.indexOf(item.id) >= 0) return "en";
         if (item.link.indexOf("/en/") >= 0) return "en";
         if (item.link.indexOf("/es/") >= 0) return "es";
         if (estArticle && EN_POSTS.indexOf(item.id) >= 0) return "en";
