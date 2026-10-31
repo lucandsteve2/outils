@@ -251,7 +251,15 @@
     .wrap{max-width:1200px;padding:0 24px 72px}
     .hero{margin:28px 0 0;border-radius:20px;padding:40px 36px 34px}
     @media (max-width:640px){.sitenav{gap:13px;font-size:14px}.hero{padding:30px 22px 26px}.sitebrand{font-size:19px}}
-  </style>
+  
+/* MENU-SURVOL (2026-10-30) : pastille teal en fondu au survol, comme sur le site principal */
+.ls-nav{ gap:10px; }
+.ls-nav a{ border-radius:999px; padding:.35rem .7rem; transition:background-color .22s ease, opacity .22s ease; }
+.ls-nav a:hover{ background:rgba(94,234,212,.18); opacity:1; text-decoration:none; }
+.ls-lang-btn{ border-radius:999px; padding:.35rem .45rem; transition:background-color .22s ease; }
+.ls-lang-btn:hover{ background:rgba(94,234,212,.18); }
+.ls-lang-menu a{ border-radius:0; padding:7px 16px; }
+</style>
 </head>
   <body>
     <!-- En-tête du site (pleine largeur) -->
