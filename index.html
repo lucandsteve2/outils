@@ -212,7 +212,7 @@
       .ls-lang{ position:relative; opacity:.92; }
       .ls-lang-btn{ background:none; border:0; color:#fff; font:inherit; font-weight:600; cursor:pointer; padding:0; }
       .ls-caret{ font-size:.72em; }
-      .ls-lang-menu{ display:none; position:absolute; right:0; top:calc(100% + 10px); background:#0c262b; border:1px solid rgba(230,255,250,.25); border-radius:10px; padding:8px 0; min-width:150px; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:70; }
+      .ls-lang-menu{ display:none; position:absolute; right:0; top:calc(100% + 10px); background:#0c262b; border:1px solid rgba(230,255,250,.25); border-radius:10px; padding:8px 0; min-width:240px; max-width:300px; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:70; }
 .ls-lang-menu::before{ content:""; position:absolute; left:0; right:0; top:-12px; height:12px; }
 .ls-nav{ margin-left:auto; }
 .ls-lang{ margin-left:-6px; }
@@ -224,7 +224,7 @@
 .ls-nav.open{ display:flex; flex-direction:column; align-items:flex-start; gap:4px; position:absolute; top:100%; left:0; right:0; background:#0c262b; padding:10px 24px 16px; box-shadow:0 18px 30px rgba(0,0,0,.35); z-index:65; }
 .ls-nav.open a{ padding:7px 0; }
 }
-      .ls-lang-menu a{ display:block; padding:7px 16px; margin:0; opacity:1; white-space:nowrap; }
+      .ls-lang-menu a{ display:block; padding:9px 16px; margin:0; opacity:1; white-space:normal; line-height:1.4; }
 .ls-lang-menu a{ color:#e6fffa; text-decoration:none; }
 .ls-lang-menu a:hover{ background:rgba(230,255,250,.08); }
       .ls-lang:hover .ls-lang-menu, .ls-lang:focus-within .ls-lang-menu{ display:block; }
