@@ -355,8 +355,8 @@
         <h3 id="method-title">Cómo se calcula este resultado</h3>
         <ul>
           <li>Aplicamos una misma diferencia de precios a tu presupuesto mensual total, sin detallar rubro por rubro.</li>
-          <li>Diferencia aplicada: el mismo tren de vida en México cuesta alrededor de un <b id="mEcart">33,4 %</b> menos que en Quebec — por ejemplo, <b id="mExemple">2 864 $</b> allá por un presupuesto de 4 300 $ aquí.</li>
-          <li>Tipo de cambio utilizado: 1 $ CAD = <b id="mTaux">13,29</b> MXN al tipo de mercado, comparado con <b id="mPpa">8,85</b> MXN a igual poder adquisitivo.</li>
+          <li>Diferencia aplicada: el mismo tren de vida en México cuesta alrededor de un <b id="mEcart">33,0 %</b> menos que en Quebec — por ejemplo, <b id="mExemple">2 864 $</b> allá por un presupuesto de <b id="mBudget">4 300 $</b> aquí.</li>
+          <li>Tipo de cambio utilizado: 1 $ CAD = <b id="mTaux">13,2048</b> MXN al tipo de mercado, comparado con <b id="mPpa">8,8533</b> MXN a igual poder adquisitivo.</li>
           <li>Fuentes: paridades de poder adquisitivo del Banco Mundial (2025) y tipo de cambio diario del Banco de Canadá.</li>
           <li>Última actualización de las cifras: <span id="mDate">6 de noviembre de 2026</span>.</li>
           <li>Lo que la estimación no incluye: vuelos, seguro de viaje, gastos de estancia temporal y otros costos propios de tu situación, salvo indicación contraria.</li>
@@ -377,8 +377,8 @@
       var TAUX_PPA = PPA_MX / PPA_CA;            // 8,85 pesos par $ CA à pouvoir d'achat égal
       var RATIO_PPA = TAUX_PPA / TAUX_MARCHE;    // ≈ 0,67 : part du budget QC pour le même train de vie au MX
 
-      var fmtCAD = new Intl.NumberFormat("es-MX",{style:"currency",currency:"CAD",maximumFractionDigits:0});
-      var fmtNum = new Intl.NumberFormat("es-MX",{maximumFractionDigits:0}); function fmtMXN(v){ return "MX$" + fmtNum.format(v); }
+      var fmtCAD = new Intl.NumberFormat("es-ES",{style:"currency",currency:"CAD",currencyDisplay:"narrowSymbol",maximumFractionDigits:0});
+      var fmtNum = new Intl.NumberFormat("es-ES",{maximumFractionDigits:0}); function fmtMXN(v){ return "MX$" + fmtNum.format(v); }
       function $(id){ return document.getElementById(id); }
 
       function render(){
@@ -396,10 +396,11 @@
         $("rSaveMonths").textContent = mois;
         $("rMxMxn").textContent = fmtMXN(mxTotal * TAUX_MARCHE);
         $("rQcMxn").textContent = fmtMXN(total * TAUX_MARCHE);
-        $("mTaux").textContent = TAUX_MARCHE.toFixed(2).replace(".", ",");
-        $("mPpa").textContent = TAUX_PPA.toFixed(2).replace(".", ",");
+        $("mTaux").textContent = TAUX_MARCHE.toFixed(4).replace(".", ",");
+        $("mPpa").textContent = TAUX_PPA.toFixed(4).replace(".", ",");
         $("mEcart").textContent = ((1 - RATIO_PPA) * 100).toFixed(1).replace(".", ",") + " %";
-        $("mExemple").textContent = fmtCAD.format(4300 * RATIO_PPA);
+        $("mExemple").textContent = fmtCAD.format(mxTotal);
+        $("mBudget").textContent = fmtCAD.format(total);
       }
       $("budget").addEventListener("input", render);
       $("mois").addEventListener("input", render);
