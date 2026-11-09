@@ -355,8 +355,8 @@
         <h3 id="method-title">How this result is calculated</h3>
         <ul>
           <li>We apply a single price gap to your total monthly budget, with no category-by-category breakdown.</li>
-          <li>Gap applied: the same lifestyle in Mexico costs about <b id="mEcart">33.4%</b> less than in Quebec — for example <b id="mExemple">$2,864</b> there for a $4,300 budget here.</li>
-          <li>Exchange rate used: CAD 1 = <b id="mTaux">13.29</b> MXN at the market rate, compared with <b id="mPpa">8.85</b> MXN at equal purchasing power.</li>
+          <li>Gap applied: the same lifestyle in Mexico costs about <b id="mEcart">33.0%</b> less than in Quebec — for example <b id="mExemple">$2,864</b> there for a <b id="mBudget">$4,300</b> budget here.</li>
+          <li>Exchange rate used: CAD 1 = <b id="mTaux">13.2048</b> MXN at the market rate, compared with <b id="mPpa">8.8533</b> MXN at equal purchasing power.</li>
           <li>Sources: World Bank purchasing power parities (2025) and the Bank of Canada's daily exchange rate.</li>
           <li>Figures last updated: <span id="mDate">November 6, 2026</span>.</li>
           <li>What the estimate does not include: flights, travel insurance, temporary-stay costs and other expenses specific to your situation, unless stated otherwise.</li>
@@ -396,10 +396,11 @@
         $("rSaveMonths").textContent = mois;
         $("rMxMxn").textContent = fmtMXN.format(mxTotal * TAUX_MARCHE);
         $("rQcMxn").textContent = fmtMXN.format(total * TAUX_MARCHE);
-        $("mTaux").textContent = TAUX_MARCHE.toFixed(2);
-        $("mPpa").textContent = TAUX_PPA.toFixed(2);
+        $("mTaux").textContent = TAUX_MARCHE.toFixed(4);
+        $("mPpa").textContent = TAUX_PPA.toFixed(4);
         $("mEcart").textContent = ((1 - RATIO_PPA) * 100).toFixed(1) + "%";
-        $("mExemple").textContent = fmtCAD.format(4300 * RATIO_PPA);
+        $("mExemple").textContent = fmtCAD.format(mxTotal);
+        $("mBudget").textContent = fmtCAD.format(total);
       }
       $("budget").addEventListener("input", render);
       $("mois").addEventListener("input", render);
