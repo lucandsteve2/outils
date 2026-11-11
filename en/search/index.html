@@ -198,6 +198,12 @@ document.querySelectorAll('.ls-lang-btn').forEach(function(b){b.addEventListener
                    font-size: .8rem; font-weight: 700; padding: 5px 10px; border-radius: 999px; white-space: nowrap;
                    opacity: 0; pointer-events: none; transition: opacity .25s ease .1s; }
   .rs-wrap:not(.ouvert) .rs-btn.seduire::after { opacity: 1; }
+  .rs-sep { border-top: 1px solid #e3edeb; margin: 8px 4px 2px; }
+  .rs-action { border: none; background: none; width: 100%; text-align: left; cursor: pointer; font: inherit; }
+  .rs-share { background: #0b4f6c; } .rs-copy { background: #0e7c86; } .rs-ml { background: #5b7a86; } .rs-wa { background: #25d366; }
+  .rs-chips { display: flex; gap: 8px; padding: 6px 8px 4px; }
+  .rs-chip { flex: 0 0 38px; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .rs-chip svg { width: 20px; height: 20px; fill: #fff; }
   @media (max-width: 560px) { .rs-wrap { right: 14px; bottom: 14px; } .rs-panel { min-width: 216px; } }
   @media (prefers-reduced-motion: reduce) { .rs-panel, .rs-btn, .rs-btn svg, .rs-btn::after { transition: none; } }
 </style>
@@ -209,6 +215,15 @@ document.querySelectorAll('.ls-lang-btn').forEach(function(b){b.addEventListener
     <a class="rs-lien" href="https://www.facebook.com/profile.php?id=100086035128897" target="_blank" rel="noopener"><span class="rs-ico rs-fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>Facebook<span class="rs-va">›</span></a>
     <a class="rs-lien" href="https://www.instagram.com/luc_et_steve/" target="_blank" rel="noopener"><span class="rs-ico rs-ig"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.859 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></span>Instagram<span class="rs-va">›</span></a>
     <a class="rs-lien" href="https://www.threads.com/@luc_et_steve" target="_blank" rel="noopener"><span class="rs-ico rs-th"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.963-6.517 2.798C4.307 6.71 3.616 9.133 3.6 12.005c.016 2.871.708 5.294 2.063 7.088 1.412 1.836 3.612 2.777 6.522 2.799 2.908-.023 5.109-.965 6.517-2.8 1.358-1.793 2.048-4.216 2.065-7.087-.017-2.872-.708-5.295-2.063-7.09-1.214-1.578-3.01-2.55-5.342-2.89l.35-2.095c2.782.405 5.033 1.642 6.692 3.677 1.647 2.052 2.496 4.903 2.525 8.482.03 3.578-.879 6.432-2.525 8.484-1.846 2.301-4.6 3.484-8.182 3.508zM17.79 7.045c-.271-1.798-1.427-2.895-3.262-3.109-.186-.021-.374-.034-.563-.038-1.946-.019-3.557 1.131-4.077 3.091-.313 1.186-.232 2.748.102 3.786.818 2.542 3.046 3.638 5.227 2.885 1.545-.534 2.463-1.953 2.463-3.55 0-1.861-1.51-3.201-3.605-3.201-.213 0-.42.02-.621.057l-.147-1.98c.257-.045.528-.068.807-.068 2.972 0 5.229 2.089 5.229 4.976 0 2.576-1.684 4.749-4.197 5.416-3.448.912-7.106-.806-8.402-4.37-.486-1.335-.616-3.224-.255-4.792C6.07 3.753 8.663 1.682 12.01 1.6c.244-.005.49.003.735.023 2.99.252 5.335 2.196 5.978 4.953.096.417.15.849.16 1.285l-2.094.184z" transform="scale(0.92) translate(1 1)"/></svg></span>Threads<span class="rs-va">›</span></a>
+    <div class="rs-sep"></div>
+    <p class="rs-titre" id="rsPartageTitre">Partager cette page</p>
+    <button class="rs-lien rs-action" id="rsShareBtn" type="button"><span class="rs-ico rs-share"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg></span><span id="rsShareTxt">Partager…</span></button>
+    <button class="rs-lien rs-action" id="rsCopyBtn" type="button"><span class="rs-ico rs-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></span><span id="rsCopyTxt">Copier le lien</span></button>
+    <div class="rs-chips">
+      <a class="rs-chip rs-fb" id="rsChipFb" href="#" target="_blank" rel="noopener" aria-label="Partager sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a class="rs-chip rs-wa" id="rsChipWa" href="#" target="_blank" rel="noopener" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+      <a class="rs-chip rs-ml" id="rsChipMl" href="#" aria-label="Partager par courriel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    </div>
   </div>
   <button class="rs-btn" id="rsBtn" data-badge="Réseaux" type="button" aria-expanded="false" aria-controls="rsWrap" aria-label="Nos réseaux sociaux">
     <svg class="rs-ouvrir" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
@@ -219,9 +234,9 @@ document.querySelectorAll('.ls-lang-btn').forEach(function(b){b.addEventListener
 <script>
 (function () {
   var TEXTES = {
-    fr: { titre: 'Suivez-nous', badge: 'Réseaux', aria: 'Nos réseaux sociaux' },
-    en: { titre: 'Follow us', badge: 'Social', aria: 'Our social networks' },
-    es: { titre: 'Síguenos', badge: 'Redes', aria: 'Nuestras redes sociales' }
+    fr: { titre: 'Suivez-nous', badge: 'Réseaux', aria: 'Nos réseaux sociaux', ptitre: 'Partager cette page', partager: 'Partager…', copier: 'Copier le lien', copie: 'Lien copié !' },
+    en: { titre: 'Follow us', badge: 'Social', aria: 'Our social networks', ptitre: 'Share this page', partager: 'Share…', copier: 'Copy the link', copie: 'Link copied!' },
+    es: { titre: 'Síguenos', badge: 'Redes', aria: 'Nuestras redes sociales', ptitre: 'Compartir esta página', partager: 'Compartir…', copier: 'Copiar el enlace', copie: '¡Enlace copiado!' }
   };
   var chemin = location.pathname;
   var classes = document.body.className;
@@ -242,6 +257,34 @@ document.querySelectorAll('.ls-lang-btn').forEach(function(b){b.addEventListener
   wrap.querySelector('.rs-panel').setAttribute('aria-label', t.aria);
   btn.setAttribute('aria-label', t.aria);
   btn.setAttribute('data-badge', t.badge);
+  document.getElementById('rsPartageTitre').textContent = t.ptitre;
+  document.getElementById('rsShareTxt').textContent = t.partager;
+  var copieTxt = document.getElementById('rsCopyTxt');
+  copieTxt.textContent = t.copier;
+  var pageUrl = location.origin + location.pathname;
+  var pageTitre = document.title;
+  document.getElementById('rsChipFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+  document.getElementById('rsChipWa').href = 'https://wa.me/?text=' + encodeURIComponent(pageTitre + ' ' + pageUrl);
+  document.getElementById('rsChipMl').href = 'mailto:?subject=' + encodeURIComponent(pageTitre) + '\u0026body=' + encodeURIComponent(pageUrl);
+  var shareBtn = document.getElementById('rsShareBtn');
+  if (navigator.share) {
+    shareBtn.addEventListener('click', function () {
+      navigator.share({ title: pageTitre, url: pageUrl }).catch(function () {});
+    });
+  } else {
+    shareBtn.style.display = 'none';
+  }
+  document.getElementById('rsCopyBtn').addEventListener('click', function () {
+    function retour() {
+      copieTxt.textContent = t.copie;
+      setTimeout(function () { copieTxt.textContent = t.copier; }, 1600);
+    }
+    if (navigator.clipboard) {
+      if (navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pageUrl).then(retour).catch(function () {});
+      }
+    }
+  });
   function bascule(ouvrir) {
     wrap.classList.toggle('ouvert', ouvrir);
     btn.setAttribute('aria-expanded', ouvrir ? 'true' : 'false');
